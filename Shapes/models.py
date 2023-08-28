@@ -1,16 +1,3 @@
-"""
-	Create a square type with an area function. It should extend Shape.
-	Create a rectangle type with an area function. It should extend Shape.
-	Create a circle type with an area function. It should extend Shape.
-
-	Create a function that takes a list of shapes, and returns the shape with the largest area.
-		If tie, return any of the tied.
-
-	Create a function that takes a list of shapes, and returns the shape with the smallest area.
-		If tie, return any of the tied.
-"""
-
-
 import math
 
 class Shape:
