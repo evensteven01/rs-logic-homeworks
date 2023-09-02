@@ -1,7 +1,13 @@
-from models import Shape
+from models import Shape, Triangle, Square, Rectangle, Circle
 
-def largestArea():
-	pass
+# this is to find the largest area from whichever the shape has
+def largestArea(Trinagle: Shape, Square: Shape, Rectangle: Shape, Circle: Shape):
+	if :
+		pass
+	return area(self)
 
-def smallesArea():
-	pass
+# this is to find the smallest area from whichever the shape has
+def smallesArea(Triangle: Shape, Square: Shape, Rectangle: Shape, Circle: Shape):
+	if :
+		pass
+	return area(self)
