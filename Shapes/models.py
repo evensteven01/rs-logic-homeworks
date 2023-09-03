@@ -1,3 +1,4 @@
+# This module designs and create all kinds of shape objects with areas and/or perimeters
 import math
 
 class Shape:(self)
