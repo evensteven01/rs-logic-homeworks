@@ -1,14 +1,22 @@
 # this module will find largest and smallest area of each shapes and compare them which has largest or smallest area
-from models import Shape, Triangle, Square, Rectangle, Circle
+from models import Shape
 
 # this function is to find the largest area from whichever the shape has
-def largestArea(Trinagle: Shape, Square: Shape, Rectangle: Shape, Circle: Shape):
-	if :
-		pass
-	return area(self)
+def largestArea(listOfShapes: list[Shape])-> Shape:
+	biggest = None
+	for shp in listOfShapes:
+		if biggest is None:
+			biggest = shp
+		elif biggest.area() < shp.area():
+			biggest = shp
+	return biggest
 
 # this function is to find the smallest area from whichever the shape has
-def smallesArea(Triangle: Shape, Square: Shape, Rectangle: Shape, Circle: Shape):
-	if :
-		pass
-	return area(self)
+def smallesArea(listOfShapes: list[Shape])-> Shape:
+	smallest = None
+	for shp in listOfShapes:
+		if smallest is None:
+			smallest = shp
+		elif smallest.area() > shp.area():
+			smallest = shp
+	return smallest

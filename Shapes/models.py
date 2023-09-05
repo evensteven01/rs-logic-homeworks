@@ -1,12 +1,12 @@
 # This module designs and create all kinds of shape objects with areas and/or perimeters
 import math
 
-class Shape:(self)
+class Shape:
 	def area(self) -> float:
 		raise NotImplementedError()
 
 class Triangle(Shape):
-	def __init__(self, side1, side2, side3):
+	def __init__(self, side1: float, side2: float, side3: float):
 		self.side1 = side1
 		self.side2 = side2
 		self.side3 = side3
@@ -19,7 +19,7 @@ class Triangle(Shape):
 
 class Square(Shape):
 	"""docstring for Square"""
-	def __init__(self, side):
+	def __init__(self, side: float):
 		self.side = side
 
 	def area(self):
@@ -36,7 +36,7 @@ class Square(Shape):
 
 class Rectangle(Shape):
 	"""docstring for Rectangle"""
-	def __init__(self, width, height):
+	def __init__(self, width: float, height: float):
 		self.width = width
 		self.height = height
 
@@ -47,7 +47,7 @@ class Rectangle(Shape):
 		
 class Circle(Shape):
 	"""docstring for Circle"""
-	def __init__(self, radius):
+	def __init__(self, radius: float):
 		self.radius = radius
 
 	def area(self):
