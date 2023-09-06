@@ -17,6 +17,9 @@ class Triangle(Shape):
 		s_p = (self.side1 + self.side2 + self.side3)/2
 		return math.sqrt(s_p*(s_p-self.side1)*(s_p-self.side2)*(s_p-self.side3))
 
+	def __str__(self):
+		return f"trinagle's side1: {self.side1}, side2: {self.side2}, side3: {self.side3}"
+
 class Square(Shape):
 	"""docstring for Square"""
 	def __init__(self, side: float):
@@ -29,6 +32,9 @@ class Square(Shape):
 		# this is square's area formula
 		sqrtArea = math.pow(self.side, 2)
 		return sqrtArea
+
+	def __str__(self):
+		return f"square's side: {self.side}"
 
 	def perimeter():
 		squrePerimeter = sum(self.side)
@@ -44,6 +50,9 @@ class Rectangle(Shape):
 		# this is Rectangle's area formula with width and height
 		rectArea = (self.width * self.height)
 		return rectArea
+
+	def __str__(self):
+		return f"rectangle's width: {self.width}, height: {self.height}"
 		
 class Circle(Shape):
 	"""docstring for Circle"""
@@ -58,4 +67,7 @@ class Circle(Shape):
 	def perimeter(self):
 		circlePerimeter = (2 * self.radius) * 3.14
 		return circlePerimeter
+
+	def __str__(self):
+		return f"circle's radius: {self.radius}"
 		

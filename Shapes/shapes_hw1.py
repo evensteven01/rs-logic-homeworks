@@ -12,7 +12,7 @@ def largestArea(listOfShapes: list[Shape])-> Shape:
 	return biggest
 
 # this function is to find the smallest area from whichever the shape has
-def smallesArea(listOfShapes: list[Shape])-> Shape:
+def smallestArea(listOfShapes: list[Shape])-> Shape:
 	smallest = None
 	for shp in listOfShapes:
 		if smallest is None:
