@@ -1,5 +1,5 @@
 # This module will manipulates text
-import text_statistics
+from text_statistics import *
 
 def capitalizeFirstLetterOfEverySentences():
 	pass
