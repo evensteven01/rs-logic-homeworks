@@ -4,6 +4,8 @@ import os
 import json
 import ast
 import pickle
+import re
+from parse import parse
 
 filename = "data.text"
 filename2 = "data.json"
@@ -15,25 +17,24 @@ def getTotalParagraphsInText(text: str)-> int:
 	if text is None:
 		return num_of_paragraph
 
-	for line in text.split("\n"):
-		num_of_paragraph += len(line)
-	totalParagraph = sum(num_of_paragraph)
-	return totalParagraph
+	paragraphs = text.split("\n")
+
+	for p in paragraphs:
+		if p != "":
+			num_of_paragraph += 1
+	return num_of_paragraph
 
 def getTotalParagraphsInFile(file: str)-> int:
 	num_of_paragraph = 0
 	try:
 		with open(filename, "r+") as file:
-			for line in file.readlines():
-				file = line.split("\n")
-				num_of_paragraph += len(file)
-			totalParagraph = sum(num_of_paragraph)
+			content = file.read()
+		num_of_paragraph = getTotalParagraphsInText(content)
 	except FileNotFoundError as fe:
 		raise fe
 	else:
 		msg = "The file " + filename + " does not exist."
-	finally:
-		file.close()
+	return num_of_paragraph
 
 def getTotalCharactersInText(text: str)-> int:
 	num_of_characters = 0
@@ -41,28 +42,20 @@ def getTotalCharactersInText(text: str)-> int:
 	if text is None:
 		return num_of_characters
 
-	for line in text.split():
-		num_of_characters += len(list(line))
-	totalCharacters = sum(num_of_characters)
-	return totalCharacters
+	num_of_characters = len(text)
+	return num_of_characters
 
 def getTotalCharactersInFile(file: str)-> int:
 	num_of_characters = 0
-	flag = True
 	try:
 		with open(filename, "r+") as file:
-			while flag:
-				characters = file.readlines()[1:]
-				if not characters:
-					break
-				num_of_characters += len(characters)
-			totalCharacters = sum(num_of_characters)
+			content = file.read()
+		num_of_characters = getTotalCharactersInText(content)
 	except FileNotFoundError as fe:
 		raise fe
 	else:
 		msg = "The file " + filename + " does not exist."
-	finally:
-		file.close()
+	return num_of_characters
 
 def getTotalWordsInText(text: str)-> int:
 	num_of_words = 0
@@ -70,39 +63,56 @@ def getTotalWordsInText(text: str)-> int:
 	if text is None:
 		return num_of_words
 
-	for line in text.split():
-		num_of_words += len(line)
-	totalWords = sum(num_of_words)
-	return totalWords
+	words = text.split(" ")
+
+	for w in words:
+		if w != "":
+			num_of_words += 1
+	return num_of_words
 
 def getTotalWordsInFile(file: str)-> int:
 	num_of_words = 0
 	try:
 		with open(filename, "r+") as file:
-			for line in file.readlines():
-				words = line.split()
-				num_of_words += len(words)
-			totalWords = sum(num_of_words)
+			content = file.read()
+		num_of_words = getTotalWordsInText(content)
 	except FileNotFoundError as fe:
 		raise fe
 	else:
 		msg = "The file " + filename + " does not exist."
-	finally:
-		file.close()
+	return num_of_words
 
-def getTotalSentences(text: str)->int:
+def getTotalSentencesInText(text: str)-> int:
 	num_of_sentences = 0
 
 	if text is None:
 		return num_of_sentences
 
-	for line in text.split():
-		num_of_sentences += len(line)
-	totalSentence = sum(num_of_sentences)
-	return totalSentence
+	sentences = text.split(".")
 
-def getTotalCountsOfCertainCharacter(certainCharacter: str)-> int:
-	pass
+	for s in sentences:
+		if s != "":
+			num_of_sentences += 1
+	return num_of_sentences
+
+def getTotalSentencesInFile(file: str)-> int:
+	num_of_sentences = 0
+	try:
+		with open(filename, "r") as file:
+			content = file.read()
+		num_of_sentences = getTotalSentencesInText(content)
+	except FileNotFoundError as fe:
+		raise fe
+	else:
+		msg = "The file " + filename + " does not exist."
+	return num_of_sentences
+
+def getTotalCountsOfCertainCharacter(certainCharacter: str, text: str)-> int:
+	num_of_certain_characters = 0
+
+	if certainCharacter is None and text is None:
+		return num_of_certain_characters
+		
 
 def getTotalCountsOfListedCharacters(listedCharacters: list[str])-> int:
 	Dict = {}
@@ -111,11 +121,11 @@ def getTotalCountsOfListedCharacters(listedCharacters: list[str])-> int:
 def getTotalCountsOfListedWords(listedWords: list[str])-> int: 
 	pass
 
-def getAverageLengthOfWords():
+def getAverageLengthOfWords()-> int:
 	pass
 
-def getAverageLengthOfSentences():
+def getAverageLengthOfSentences()-> int:
 	pass
 
-def getAverageNumbersOfSentencesPerParagraph():
+def getAverageNumbersOfSentencesPerParagraph()-> int:
 	pass
