@@ -113,15 +113,28 @@ def getTotalCountsOfCertainCharacter(certainCharacter: str, text: str)-> int:
 	if certainCharacter is None and text is None:
 		return num_of_certain_characters
 		
+	certainCharacter = getTotalCharactersInText(text)
 
-def getTotalCountsOfListedCharacters(listedCharacters: list[str])-> int:
-	Dict = {}
-	return dict.items(Dict)
+	for cc in certainCharacter:
+		if cc != "":
+			num_of_certain_characters += 1
+	return num_of_certain_characters
 
-def getTotalCountsOfListedWords(listedWords: list[str])-> int: 
-	pass
+def getTotalCountsOfListedCharacters(listedCharacters: list[str], text: str)-> int:
+	listed_character_dict = {}
+	listedCharacters = getTotalCharactersInText(text)
+	listed_character_dict.append(listedCharacters)
 
-def getAverageLengthOfWords()-> int:
+	return dict.items(listed_character_dict)
+
+def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> int: 
+	listed_words_dic = {}
+	listedWords = getTotalWordsInText(text)
+	listed_character_dict.append(listedWords)
+
+	return dict.items(listed_words_dic)
+ 
+def getAverageLengthOfWords(text: str)-> int:
 	pass
 
 def getAverageLengthOfSentences()-> int:
