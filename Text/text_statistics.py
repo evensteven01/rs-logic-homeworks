@@ -4,8 +4,6 @@ import os
 import json
 import ast
 import pickle
-import re
-from parse import parse
 
 filename = "data.text"
 filename2 = "data.json"
@@ -122,23 +120,45 @@ def getTotalCountsOfCertainCharacter(certainCharacter: str, text: str)-> int:
 
 def getTotalCountsOfListedCharacters(listedCharacters: list[str], text: str)-> int:
 	listed_character_dict = {}
+	totalCountsOfListedCharacters = 0
+
+	if listed_character_dict is None and text is None:
+		return totalCountsOfListedCharacters
+
 	listedCharacters = getTotalCharactersInText(text)
 	listed_character_dict.append(listedCharacters)
 
-	return dict.items(listed_character_dict)
+	for lc in listedCharacters:
+		if lc != "":
+			totalCountsOfListedCharacters += 1
+			return dict.items(listed_character_dict)
+	return totalCountsOfListedCharacters
 
 def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> int: 
-	listed_words_dic = {}
-	listedWords = getTotalWordsInText(text)
-	listed_character_dict.append(listedWords)
+	listed_words_dict = {}
+	totalCountsOfListedWords = 0
 
-	return dict.items(listed_words_dic)
+	if listedWords is None and text is None:
+		return totalCountsOfListedWords
+
+	listedWords = getTotalWordsInText(text)
+	listed_words_dict.append(listedWords)
+
+	for lw in listedWords:
+		if lw != "":
+			totalCountsOfListedWords += 1
+			return dict.items(listed_words_dict)
+	return totalCountsOfListedWords
  
 def getAverageLengthOfWords(text: str)-> int:
+	average = 0
+
+	lengthOfWords = len(getTotalWordsInText(text))
+
+	return average
+
+def getAverageLengthOfSentences(text: str)-> int:
 	pass
 
-def getAverageLengthOfSentences()-> int:
-	pass
-
-def getAverageNumbersOfSentencesPerParagraph()-> int:
+def getAverageNumbersOfSentencesPerParagraph(text: str)-> int:
 	pass
