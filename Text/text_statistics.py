@@ -162,7 +162,7 @@ def getTotalCountsOfListedCharacters(listedCharacters: list[str], text: str)-> d
 	listed_character_dict = {}
 
 	if listed_character_dict is None or text is None:
-		return
+		return listed_character_dict
 
 	for lc in listedCharacters:
 		outcome = getTotalCountsOfCertainCharacter(lc, text)
@@ -177,7 +177,7 @@ def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, i
 	listed_words_dict = {}
 
 	if listedWords is None or text is None:
-		return
+		return listed_words_dict
 
 	for lw in listedWords:
 		outcome = getTotalWordsInText(lw)
@@ -190,7 +190,11 @@ def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, i
 def getAverageLengthOfWords(text: str)-> int:
 	averageLengthOfWords = 0
 
-	lengthOfWords = len(getTotalWordsInText(text))
+	if text is None:
+		return averageLengthOfWords
+
+	for lenWords in text:
+		lengthOfWords = len(getTotalWordsInText(lenWords))
 
 	averageLengthOfWords += lengthOfWords
 
@@ -202,9 +206,13 @@ def getAverageLengthOfWords(text: str)-> int:
 def getAverageLengthOfSentences(text: str)-> int:
 	averageLengthOfSentences = 0
 
-	lengthOfsentences = len(getTotalWordsInText(text))
+	if text is None:
+		return averageLengthOfSentences
 
-	averageLengthOfSentences += lengthOfWords
+	lengthOfsentences = len(getTotalSentencesInText(text))
+
+	for lenSenetnces in range(lengthOfsentences):
+		averageLengthOfSentences = lenSenetnces
 
 	return averageLengthOfSentences
 
