@@ -189,14 +189,17 @@ def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, i
 """
 def getAverageLengthOfWords(text: str)-> int:
 	averageLengthOfWords = 0
+	lengthOfWords = 0
 
 	if text is None:
 		return averageLengthOfWords
 
-	for lenWords in text:
-		lengthOfWords = len(getTotalWordsInText(lenWords))
+	words = text.split(" ")
 
-	averageLengthOfWords += lengthOfWords
+	for w in words:
+		lengthOfWords += len(w)
+
+	averageLengthOfWords = (lengthOfWords / getTotalWordsInText(text))
 
 	return averageLengthOfWords
 
@@ -205,14 +208,17 @@ def getAverageLengthOfWords(text: str)-> int:
 """
 def getAverageLengthOfSentences(text: str)-> int:
 	averageLengthOfSentences = 0
+	lengthOfSenetnces = 0
 
 	if text is None:
 		return averageLengthOfSentences
 
-	lengthOfsentences = len(getTotalSentencesInText(text))
+	sentences = text.split(".")
 
-	for lenSenetnces in range(lengthOfsentences):
-		averageLengthOfSentences = lenSenetnces
+	for s in sentences:
+		lengthOfSenetnces += len(s) 
+
+	averageLengthOfSentences = (lengthOfSenetnces / getTotalSentencesInText(text))           
 
 	return averageLengthOfSentences
 
@@ -221,5 +227,17 @@ def getAverageLengthOfSentences(text: str)-> int:
 """
 def getAverageNumbersOfSentencesPerParagraph(text: str)-> int:
 	averageNumberOfSenetncesPerParagraph = 0
+	lengthOfSentencesPerParagraph = 0
+
+	if text is None:
+		return averageNumberOfSenetncesPerParagraph
+
+	paragraphs = text.split("\n")
+
+	for p in paragraphs:
+		sentencesPerParagraph = getTotalSentencesInText(p)
+		lengthOfSentencesPerParagraph += sentencesPerParagraph
+
+	averageNumberOfSenetncesPerParagraph = (lengthOfSenetncesPerParagraph / getTotalParagraphsInText(text))
 
 	return averageNumberOfSenetncesPerParagraph
