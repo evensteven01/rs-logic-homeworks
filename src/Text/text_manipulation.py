@@ -6,24 +6,34 @@ import re
 This function is to capitalizes every first letters in every sentences
 """
 def capitalizeFirstLetterOfEverySentences(text: str)-> str:
-	firstLetter = ""
-	num_of_sentences = 0
+	capitalizedSentence = ""
+
+	capitalizedSentenceList = []
 
 	sentences = text.split(".")
 
 	for s in sentences:
-		firstLetter = s.capitalize()
+		capitalizedSentence = s.capitalize()
+		capitalizedSentenceList.append(capitalizedSentence)
 
-		num_of_sentences += getTotalSentencesInText(firstLetter)
+	cs = ".".join(capitalizedSentenceList)
 
-	return firstLetter
+	return cs
 
 """
 	This function is to replece set of words with other set of words
 """
-def replacementSetOfWords(listedWords: list[str], text: str)-> dict[str, str]:
+def replacementSetOfWords(wordReplacement: dict[str, str], text: str)-> str:
 	replaceWords = ""
 
-	word_list = getTotalCountsOfListedWords(text)
+	words = text.split(" ")
 
-	return replaceWords
+	for rw in words:
+		# check if this word should be replace?
+		if :
+			pass
+
+		# replace old word with new word
+		text.replace()
+
+	return 
