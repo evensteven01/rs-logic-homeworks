@@ -1,9 +1,5 @@
  # This module produces statistics about text
-import ntk
 import os
-import json
-import ast
-import pickle
 
 filename = "data.text"
 filename2 = "data.json"
