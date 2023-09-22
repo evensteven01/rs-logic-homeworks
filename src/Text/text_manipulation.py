@@ -12,7 +12,7 @@ def capitalizeFirstLetterOfEverySentences(text: str)-> str:
 	sentences = text.split(".")
 
 	for s in sentences:
-		capitalizedSentence = s.capitalize()
+		capitalizedSentence = s.title()
 		capitalizedSentenceList.append(capitalizedSentence)
 
 	cs = ".".join(capitalizedSentenceList)
