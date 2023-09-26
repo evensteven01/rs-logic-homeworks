@@ -2,7 +2,7 @@ from text_statistics import *
 from text_manipulation import capitalizeFirstLetterOfEverySentences, replacementSetOfWords
 
 if __name__ == '__main__':
-	automate = input("Do you want to input(i), or hardcode(h)?")
+	automate = input("Do you want to input(i), or hardcode(h)?:_")
 
 	if automate.lower() == "h":
 		userInput = "This is a sentence. And this is another. \nNow we have a new paragraph. Dogs are not red.\n\nGoodbye."
@@ -21,19 +21,19 @@ if __name__ == '__main__':
 	"""
 		text statistics functions calls
 	"""
-	print("The total paragraphs are", getTotalParagraphsInText(userInput))
-	print("The total characters are", getTotalCharactersInText(userInput))
-	print("The total words are", getTotalWordsInText(userInput))
-	print("The total sentences are", getTotalSentencesInText(userInput))
-	print("The total counts of certain characters are", getTotalCountsOfCertainCharacter(userCharacter,userInput))
-	print("The total counts of listed characters are", getTotalCountsOfListedCharacters(userlistedCharacter,userInput))
-	print("The total counts of listed words are", getTotalCountsOfListedWords(userlistedWords, userInput))
-	print("The average length of words is", getAverageLengthOfWords(userInput))
-	print("The average length of sentences are", getAverageLengthOfSentences(userInput)) #x
-	print("The average numbers of sentences per paragraph are", getAverageNumbersOfSentencesPerParagraph(userInput)) #x
+	print("The total paragraphs are", getTotalParagraphsInText(userInput), "\n")
+	print("The total characters are", getTotalCharactersInText(userInput), "\n")
+	print("The total words are", getTotalWordsInText(userInput), "\n")
+	print("The total sentences are", getTotalSentencesInText(userInput), "\n")
+	print("The total counts of certain characters are", getTotalCountsOfCertainCharacter(userCharacter,userInput), "\n")
+	print("The total counts of listed characters are", getTotalCountsOfListedCharacters(userlistedCharacter,userInput), "\n")
+	print("The total counts of listed words are", getTotalCountsOfListedWords(userlistedWords, userInput), "\n")
+	print("The average length of words is", getAverageLengthOfWords(userInput), "\n")
+	print("The average length of sentences are", getAverageLengthOfSentences(userInput), "\n") #x
+	print("The average numbers of sentences per paragraph are", getAverageNumbersOfSentencesPerParagraph(userInput), "\n") #x
 
 	"""
 		text manipulation functions calls
 	"""
-	print("The capitalized sentences are", capitalizeFirstLetterOfEverySentences(userInput)) #x
-	print("The old word is replaced by", replacementSetOfWords({userWord: newWord}, userInput))
+	print("The capitalized sentences are: ", capitalizeFirstLetterOfEverySentences(userInput), "\n") #x
+	print("The old word is replaced by: ", replacementSetOfWords({userWord: newWord}, userInput), "\n")
