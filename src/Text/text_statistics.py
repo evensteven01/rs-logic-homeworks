@@ -73,8 +73,8 @@ def getTotalWordsInText(text: str)-> int:
 
 	words = text.split()
 
-	for w in words:
-		if w != "":
+	for word in words:
+		if word != "":
 			num_of_words += 1
 	return num_of_words
 
@@ -104,8 +104,8 @@ def getTotalSentencesInText(text: str)-> int:
 
 	sentences = text.split(".")
 
-	for s in sentences:
-		if s != "":
+	for sentence in sentences:
+		if sentence.strip() != "":
 			num_of_sentences += 1
 	return num_of_sentences
 
@@ -177,13 +177,13 @@ def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, i
 
 	words = text.split()
 
-	for lw in listedWords:
+	for lenWord in listedWords:
 		outcome = 0
-		for w in words:
-			w = w.strip('.?,!')
-			if w == lw:
+		for word in words:
+			word = word.strip('.?,!')
+			if word == lenWord:
 				outcome += 1
-		listed_words_dict[lw] = outcome
+		listed_words_dict[lenWord] = outcome
 	return listed_words_dict
 
 """
@@ -198,8 +198,8 @@ def getAverageLengthOfWords(text: str)-> int:
 
 	words = text.split()
 
-	for w in words:
-		lengthOfWords += len(w)
+	for word in words:
+		lengthOfWords += len(word)
 
 	averageLengthOfWords = (lengthOfWords / getTotalWordsInText(text))
 
@@ -209,44 +209,41 @@ def getAverageLengthOfWords(text: str)-> int:
 	This function is to get the average length of sentences
 """
 def getAverageLengthOfSentences(text: str)-> int:
-	"""
-		not sure what is the problem with this function.
-		however there should be reasons why this function recives an error in main file
-	"""
 	averageLengthOfSentences = 0
-	lengthOfSentences = 0
+	totalWords = 0
 
 	if text is None:
 		return averageLengthOfSentences
 
 	sentences = text.split(".")
 
-	for s in sentences:
-		lengthOfSentences += len(s) 
+	for sentence in sentences:
+		if sentence == "":
+			continue
+		numOfWordsInSentence = getTotalWordsInText(sentence)
+		totalWords += numOfWordsInSentence
 
-	averageLengthOfSentences = (lengthOfSentences / getTotalSentencesInText(text))           
+	averageLengthOfSentences = (totalWords / getTotalSentencesInText(text))           
 
 	return averageLengthOfSentences
 """
 	This function is to get the average numbers of each sentences in in each paragarphas
 """
 def getAverageNumbersOfSentencesPerParagraph(text: str)-> int:
-	"""
-		not sure what is the problem with this function as well.
-		however there should be reasons why this function recives an error in main file
-	"""
 	averageNumberOfSentencesPerParagraph = 0
-	lengthOfSentencesPerParagraph = 0
+	totalSentences = 0
 
 	if text is None:
 		return averageNumberOfSentencesPerParagraph
 
 	paragraphs = text.split("\n")
 
-	for p in paragraphs:
-		sentencesPerParagraph = getTotalSentencesInText(p)
-		lengthOfSentencesPerParagraph += sentencesPerParagraph
+	for paragraph in paragraphs:
+		if paragraph == "":
+			continue
+		sentencesPerParagraph = getTotalSentencesInText(paragraph)
+		totalSentences += sentencesPerParagraph
 
-	averageNumberOfSentencesPerParagraph = (lengthOfSentencesPerParagraph / getTotalParagraphsInText(text))
+	averageNumberOfSentencesPerParagraph = (totalSentences / getTotalParagraphsInText(text))
 
 	return averageNumberOfSentencesPerParagraph

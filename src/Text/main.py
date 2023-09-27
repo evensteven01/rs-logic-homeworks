@@ -5,7 +5,7 @@ if __name__ == '__main__':
 	automate = input("Do you want to input(i), or hardcode(h)?:_")
 
 	if automate.lower() == "h":
-		userInput = "This is a sentence. And this is another. \nNow we have a new paragraph. Dogs are not red.\n\nGoodbye."
+		userInput = "this is a sentence. And this is another. \nNow we have a new paragraph. dogs are not red.\n\nGoodbye."
 		userWord = "is"
 		newWord = "be"
 		userCharacter = "i"
@@ -29,8 +29,8 @@ if __name__ == '__main__':
 	print("The total counts of listed characters are", getTotalCountsOfListedCharacters(userlistedCharacter,userInput), "\n")
 	print("The total counts of listed words are", getTotalCountsOfListedWords(userlistedWords, userInput), "\n")
 	print("The average length of words is", getAverageLengthOfWords(userInput), "\n")
-	print("The average length of sentences are", getAverageLengthOfSentences(userInput), "\n") #x
-	print("The average numbers of sentences per paragraph are", getAverageNumbersOfSentencesPerParagraph(userInput), "\n") #x
+	print("The average length of sentences are", getAverageLengthOfSentences(userInput), "\n")
+	print("The average numbers of sentences per paragraph are", getAverageNumbersOfSentencesPerParagraph(userInput), "\n") 
 
 	"""
 		text manipulation functions calls

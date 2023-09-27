@@ -14,8 +14,12 @@ def capitalizeFirstLetterOfEverySentences(text: str)-> str:
 	# It appears that every first letter are capitaized in every word rather every sentences
 	# It need to use index in order to get every first letter of each sentences to be capitaized
 
-	for s in sentences:
-		capitalizedSentence += s.title()
+	for sentence in sentences:
+		if sentence == sentence.capitalize():
+			continue
+		print(f"Before capitalize: {sentence}")
+		capitalizedSentence = sentence.capitalize()
+		print(f"After capitalize: {capitalizedSentence}")
 		capitalizedSentenceList.append(capitalizedSentence)
 
 	cs = ".".join(capitalizedSentenceList)
