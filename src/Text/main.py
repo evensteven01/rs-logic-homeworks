@@ -1,6 +1,8 @@
 from text_statistics import *
 from text_manipulation import capitalizeFirstLetterOfEverySentences, replacementSetOfWords
 
+# driver's code
+
 if __name__ == '__main__':
 	automate = input("Do you want to input(i), or hardcode(h)?:_")
 
@@ -35,5 +37,5 @@ if __name__ == '__main__':
 	"""
 		text manipulation functions calls
 	"""
-	print("The capitalized sentences are: ", capitalizeFirstLetterOfEverySentences(userInput), "\n") #x
+	print("New string after using capitalize(): ", capitalizeFirstLetterOfEverySentences(userInput), "\n") #x
 	print("The old word is replaced by: ", replacementSetOfWords({userWord: newWord}, userInput), "\n")

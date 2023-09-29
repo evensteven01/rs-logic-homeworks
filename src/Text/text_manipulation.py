@@ -1,10 +1,10 @@
 # This module will manipulates text
 from text_statistics import *
 
-"""
-This function is to capitalizes every first letters in every sentences
-"""
 def capitalizeFirstLetterOfEverySentences(text: str)-> str:
+	"""
+		This function is to capitalizes every first letters in every sentences
+	"""
 	capitalizedSentence = ""
 
 	capitalizedSentenceList = []
@@ -15,8 +15,6 @@ def capitalizeFirstLetterOfEverySentences(text: str)-> str:
 	# It need to use index in order to get every first letter of each sentences to be capitaized
 
 	for sentence in sentences:
-		if sentence == sentence.capitalize():
-			continue
 		print(f"Before capitalize: {sentence}")
 		capitalizedSentence = sentence.capitalize()
 		print(f"After capitalize: {capitalizedSentence}")
@@ -26,10 +24,10 @@ def capitalizeFirstLetterOfEverySentences(text: str)-> str:
 
 	return cs
 
-"""
-	This function is to replece set of words with other set of words
-"""
 def replacementSetOfWords(wordReplacement: dict[str, str], text: str)-> str:
+	"""
+		This function is to replece set of words with other set of words
+	"""
 	new_word_list = [] # Create a new empty dictionary to store the modified words
 
 	words = text.split() # split the given string into list of words

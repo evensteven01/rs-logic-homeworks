@@ -4,10 +4,10 @@ import os
 filename = "data.text"
 filename2 = "data.json"
 
-"""
-	This function is to get the total numbers of paragraphs in text
-"""
 def getTotalParagraphsInText(text: str)-> int:
+	"""
+		This function is to get the total numbers of paragraphs in text
+	"""
 	num_of_paragraph = 0
 
 	if text is None:
@@ -20,10 +20,11 @@ def getTotalParagraphsInText(text: str)-> int:
 			num_of_paragraph += 1
 	return num_of_paragraph
 
-"""
-	This function is to get the total numbers of paragraphs in file
-"""
+
 def getTotalParagraphsInFile(file: str)-> int:
+	"""
+		This function is to get the total numbers of paragraphs in file
+	"""
 	num_of_paragraph = 0
 	try:
 		with open(filename, "r+") as file:
@@ -35,10 +36,11 @@ def getTotalParagraphsInFile(file: str)-> int:
 		msg = "The file " + filename + " does not exist."
 	return num_of_paragraph
 
-"""
-	This function is to get total numbers of characters in text
-"""
+
 def getTotalCharactersInText(text: str)-> int:
+	"""
+		This function is to get total numbers of characters in text
+	"""
 	num_of_characters = 0
 
 	if text is None:
@@ -47,10 +49,11 @@ def getTotalCharactersInText(text: str)-> int:
 	num_of_characters = len(text)
 	return num_of_characters
 
-"""
-	This function is to get the total numbers of characters in file
-"""
+
 def getTotalCharactersInFile(file: str)-> int:
+	"""
+		This function is to get the total numbers of characters in file
+	"""
 	num_of_characters = 0
 	try:
 		with open(filename, "r+") as file:
@@ -62,10 +65,11 @@ def getTotalCharactersInFile(file: str)-> int:
 		msg = "The file " + filename + " does not exist."
 	return num_of_characters
 
-"""
-	This function is to get the total numbers of words in text
-"""
+
 def getTotalWordsInText(text: str)-> int:
+	"""
+		This function is to get the total numbers of words in text
+	"""
 	num_of_words = 0
 	
 	if text is None:
@@ -78,10 +82,11 @@ def getTotalWordsInText(text: str)-> int:
 			num_of_words += 1
 	return num_of_words
 
-"""
-	This function is to get the total numbers of words in file
-"""
+
 def getTotalWordsInFile(file: str)-> int:
+	"""
+		This function is to get the total numbers of words in file
+	"""
 	num_of_words = 0
 	try:
 		with open(filename, "r+") as file:
@@ -93,10 +98,11 @@ def getTotalWordsInFile(file: str)-> int:
 		msg = "The file " + filename + " does not exist."
 	return num_of_words
 
-"""
-	This function is to get the total numbers of sentences in text
-"""
+
 def getTotalSentencesInText(text: str)-> int:
+	"""
+		This function is to get the total numbers of sentences in text
+	"""
 	num_of_sentences = 0
 
 	if text is None:
@@ -109,11 +115,11 @@ def getTotalSentencesInText(text: str)-> int:
 			num_of_sentences += 1
 	return num_of_sentences
 
-"""
-	This function is get the total numbers of sentences in file
-"""
+
 def getTotalSentencesInFile(file: str)-> int:
-	num_of_sentences = 0
+	"""
+		This function is get the total numbers of sentences in file
+	"""
 	try:
 		with open(filename, "r") as file:
 			content = file.read()
@@ -124,10 +130,11 @@ def getTotalSentencesInFile(file: str)-> int:
 		msg = "The file " + filename + " does not exist."
 	return num_of_sentences
 
-"""
-	This function is to get the total numbers of certain characters.
-"""
+
 def getTotalCountsOfCertainCharacter(certainCharacter: str, text: str)-> int:
+	"""
+		This function is to get the total numbers of certain characters.
+	"""
 	num_of_certain_characters = 0
 
 	if certainCharacter is None or text is None:
@@ -138,11 +145,13 @@ def getTotalCountsOfCertainCharacter(certainCharacter: str, text: str)-> int:
 			num_of_certain_characters += 1
 	return num_of_certain_characters
 
-"""
-	This function is to get the total numbers of listed characters.
-	In this function, we are allow to reuse other functions if its necessary
-"""
+
 def getTotalCountsOfListedCharacters(listedCharacters: list[str], text: str)-> dict[str, int]:
+	"""
+		This function is to get the total numbers of listed characters.
+		In this function, we are allow to reuse other functions if its necessary
+	"""
+
 	"""
 		listedCharacters - A list of the charcters we are looking for
 		Return the count of each character, in a dict format.
@@ -165,11 +174,12 @@ def getTotalCountsOfListedCharacters(listedCharacters: list[str], text: str)-> d
 		listed_character_dict[lc] = outcome
 	return listed_character_dict
 
-"""
-	This function is to get the total numbers of listed words.
-	In this function, we are allow to reuse other functions if its necessary
-"""
-def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, int]: 
+
+def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, int]:
+	"""
+		This function is to get the total numbers of listed words.
+		In this function, we are allow to reuse other functions if its necessary
+	""" 
 	listed_words_dict = {}
 
 	if listedWords is None or text is None:
@@ -186,10 +196,11 @@ def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, i
 		listed_words_dict[lenWord] = outcome
 	return listed_words_dict
 
-"""
-	This function is to the average length of words
-"""
+
 def getAverageLengthOfWords(text: str)-> int:
+	"""
+		This function is to the average length of words
+	"""
 	averageLengthOfWords = 0
 	lengthOfWords = 0
 
@@ -205,10 +216,11 @@ def getAverageLengthOfWords(text: str)-> int:
 
 	return averageLengthOfWords
 
-"""
-	This function is to get the average length of sentences
-"""
+
 def getAverageLengthOfSentences(text: str)-> int:
+	"""
+		This function is to get the average length of sentences
+	"""
 	averageLengthOfSentences = 0
 	totalWords = 0
 
@@ -226,10 +238,11 @@ def getAverageLengthOfSentences(text: str)-> int:
 	averageLengthOfSentences = (totalWords / getTotalSentencesInText(text))           
 
 	return averageLengthOfSentences
-"""
-	This function is to get the average numbers of each sentences in in each paragarphas
-"""
+
 def getAverageNumbersOfSentencesPerParagraph(text: str)-> int:
+	"""
+		This function is to get the average numbers of each sentences in in each paragarphas
+	"""
 	averageNumberOfSentencesPerParagraph = 0
 	totalSentences = 0
 
