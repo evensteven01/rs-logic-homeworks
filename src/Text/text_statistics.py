@@ -21,19 +21,19 @@ def getTotalParagraphsInText(text: str)-> int:
 	return num_of_paragraph
 
 
-def getTotalParagraphsInFile(file: str)-> int:
+def getTotalParagraphsInFile(file_name: str)-> int:
 	"""
 		This function is to get the total numbers of paragraphs in file
 	"""
 	num_of_paragraph = 0
 	try:
-		with open(filename, "r+") as file:
+		with open(file_name, "r+") as file:
 			content = file.read()
 		num_of_paragraph = getTotalParagraphsInText(content)
 	except FileNotFoundError as fe:
 		raise fe
 	else:
-		msg = "The file " + filename + " does not exist."
+		msg = "The file " + file_name + " does not exist."
 	return num_of_paragraph
 
 
