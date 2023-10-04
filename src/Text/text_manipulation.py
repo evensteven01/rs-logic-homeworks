@@ -9,6 +9,9 @@ def capitalizeFirstLetterOfEverySentences(text: str)-> str:
 
 	capitalizedSentenceList = []
 
+	if text is None:
+		return None
+
 	sentences = text.split(".")
 
 	# It appears that every first letter are capitaized in every word rather every sentences
