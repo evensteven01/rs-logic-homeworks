@@ -1,12 +1,9 @@
-# this is the main module where to execute the program
 # import classes from models
 # import largestArea and smallesstArea functions from shapes_hw1
-from models import Shape, Triangle, Square, Rectangle, Circle
-from shapes_hw1 import largestArea, smallestArea
+from src.Shapes.models import Shape, Triangle, Square, Rectangle, Circle
+from src.Shapes.shapes_hw1 import largestArea, smallestArea
 
-# driver code
-if __name__ == '__main__':
-
+def main():
 	# input user
 	trinagle_side1 = float(input("Please enter for side1 of trinagle:_"))
 	trinage_side2 = float(input("Please enter for side2 of trinagle:_"))

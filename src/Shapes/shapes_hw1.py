@@ -1,6 +1,6 @@
 # this module will find largest and smallest area of each shapes and compare them which has largest or smallest area
 # import shape from models
-from models import Shape
+from src.Shapes.models import Shape
 
 # this function is to find the largest area from whichever the shape has
 def largestArea(listOfShapes: list[Shape])-> Shape:

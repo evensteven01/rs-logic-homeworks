@@ -1,9 +1,7 @@
-from text_statistics import *
-from text_manipulation import capitalizeFirstLetterOfEverySentences, replacementSetOfWords
+from src.Text.text_statistics import *
+from src.Text.text_manipulation import capitalizeFirstLetterOfEverySentences, replacementSetOfWords
 
-# driver's code
-
-if __name__ == '__main__':
+def main():
 	automate = input("Do you want to input(i), or hardcode(h)?:_")
 
 	if automate.lower() == "h":
