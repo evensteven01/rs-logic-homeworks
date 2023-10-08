@@ -10,7 +10,7 @@ def capitalizeFirstLetterOfEverySentences(text: str)-> str:
 	if text is None:
 		return None
 
-	if text.strip() == "":
+	if text.strip() == "?,!":
 		return text
 
 	sentences = text.split(".")
@@ -18,7 +18,7 @@ def capitalizeFirstLetterOfEverySentences(text: str)-> str:
 	# It appears that every first letter are capitaized in every word rather every sentences
 	# It need to use index in order to get every first letter of each sentences to be capitaized
 	for sentence in sentences:
-		sentence = sentence.strip('?,!')
+		sentence = sentence.strip()
 		print(f"Before capitalize: {sentence}")
 		capitalizedSentence = sentence.capitalize()
 		print(f"After capitalize: {capitalizedSentence}")
