@@ -201,18 +201,24 @@ def getAverageLengthOfWords(text: str)-> int:
 	"""
 		This function is to the average length of words
 	"""
-	averageLengthOfWords = 0
-	lengthOfWords = 0
+	try:
+		averageLengthOfWords = 0
+		lengthOfWords = 0
 
-	if text is None:
-		return averageLengthOfWords
+		if text is None:
+			return averageLengthOfWords
 
-	words = text.split()
+		words = text.split()
 
-	for word in words:
-		lengthOfWords += len(word)
+		for word in words:
+			if word == "":
+				continue
+			lengthOfWords += len(word)
 
-	averageLengthOfWords = (lengthOfWords / getTotalWordsInText(text))
+		averageLengthOfWords = (lengthOfWords / getTotalWordsInText(text))
+
+	except ZeroDivisionError as e:
+		raise print("Error: cannot divide by zero")
 
 	return averageLengthOfWords
 

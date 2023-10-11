@@ -11,7 +11,7 @@ from src.Text.text_manipulation import *
 		("",""),
 		("\n","\n"),
 		("This is a text. It has one paragraph.","This is a text. It has one paragraph."),
-		("this is a text. it has one paragraph.\n","This is a text. It has one paragraph."),
+		("this is a text. it has one paragraph.\n","This is a text. It has one paragraph.\n"),
 		("is this a text? it is!","Is this a text? It is!"),
 	]
 )

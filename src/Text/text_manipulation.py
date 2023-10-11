@@ -1,16 +1,20 @@
 # This module will manipulates text
 from src.Text.text_statistics import *
 
-def capitalizeFirstLetterOfEverySentences(text: str)-> str:
+def capitalizeFirstLetterOfEverySentences2(text: str)-> str:
 	"""
 		This function is to capitalizes every first letters in every sentences
 	"""
 	capitalizedSentenceList = []
+	# Examples:
+	# This is a sentence. This is another.
+	# Is this a sentence? It is! Wow. => ["This is a sentence", "It is", "Wow"]
+
 
 	if text is None:
 		return None
 
-	if text.strip() == "?,!":
+	if text.strip() == "":
 		return text
 
 	sentences = text.split(".")
@@ -27,6 +31,31 @@ def capitalizeFirstLetterOfEverySentences(text: str)-> str:
 	cs = ". ".join(capitalizedSentenceList).strip()
 
 	return cs
+
+def capitalizeFirstLetterOfEverySentences(text: str)-> str:
+	punctuations = [".", "!", "?"]
+	text_new = ""
+	is_first = True
+
+	if text is None:
+		return None
+
+	for i in range(len(text)):
+		ch = text[i]
+		if ch.strip() == "":
+			text_new += ch
+			continue
+
+		if is_first:
+			ch = ch.upper()
+			is_first = False
+
+		if ch in punctuations:
+			is_first = True
+		text_new += ch
+
+	return text_new
+
 
 def replacementSetOfWords(wordReplacement: dict[str, str], text: str)-> str:
 	"""
