@@ -169,9 +169,12 @@ def getTotalCountsOfListedCharacters(listedCharacters: list[str], text: str)-> d
 	if listed_character_dict is None or text is None:
 		return listed_character_dict
 
+	listedCharacters = [ch for ch in text]
+
 	for lc in listedCharacters:
-		outcome = getTotalCountsOfCertainCharacter(lc, text)
-		listed_character_dict[lc] = outcome
+		if lc == "":
+			outcome = getTotalCountsOfCertainCharacter(lc, text)
+			listed_character_dict[lc] = outcome
 	return listed_character_dict
 
 
@@ -201,24 +204,20 @@ def getAverageLengthOfWords(text: str)-> int:
 	"""
 		This function is to the average length of words
 	"""
-	try:
-		averageLengthOfWords = 0
-		lengthOfWords = 0
+	averageLengthOfWords = 0
+	lengthOfWords = 0
 
-		if text is None:
-			return averageLengthOfWords
+	if text is None:
+		return averageLengthOfWords
 
-		words = text.split()
+	words = text.split()
 
-		for word in words:
-			if word == "":
-				continue
-			lengthOfWords += len(word)
+	for word in words:
+		if word == "":
+			continue
+		lengthOfWords += len(word)
 
-		averageLengthOfWords = (lengthOfWords / getTotalWordsInText(text))
-
-	except ZeroDivisionError as e:
-		raise print("Error: cannot divide by zero")
+	averageLengthOfWords = (lengthOfWords / getTotalWordsInText(text))
 
 	return averageLengthOfWords
 
