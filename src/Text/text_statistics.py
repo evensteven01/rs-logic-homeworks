@@ -213,11 +213,12 @@ def getAverageLengthOfWords(text: str)-> int:
 	words = text.split()
 
 	for word in words:
-		if word == "":
-			continue
 		lengthOfWords += len(word)
 
-	averageLengthOfWords = (lengthOfWords / getTotalWordsInText(text))
+		if lengthOfWords == 0:
+			averageLengthOfWords = 0
+		else:
+			averageLengthOfWords = (lengthOfWords / getTotalWordsInText(text))
 
 	return averageLengthOfWords
 
@@ -237,10 +238,15 @@ def getAverageLengthOfSentences(text: str)-> int:
 	for sentence in sentences:
 		if sentence == "":
 			continue
+
 		numOfWordsInSentence = getTotalWordsInText(sentence)
+
 		totalWords += numOfWordsInSentence
 
-	averageLengthOfSentences = (totalWords / getTotalSentencesInText(text))           
+		if totalWords == 0:
+			totalWords = 0
+		else:
+			averageLengthOfSentences = (totalWords / getTotalSentencesInText(text))           
 
 	return averageLengthOfSentences
 
@@ -259,9 +265,14 @@ def getAverageNumbersOfSentencesPerParagraph(text: str)-> int:
 	for paragraph in paragraphs:
 		if paragraph == "":
 			continue
+
 		sentencesPerParagraph = getTotalSentencesInText(paragraph)
+
 		totalSentences += sentencesPerParagraph
 
-	averageNumberOfSentencesPerParagraph = (totalSentences / getTotalParagraphsInText(text))
+		if totalSentences == 0:
+			totalSentences = 0
+		else:
+			averageNumberOfSentencesPerParagraph = (totalSentences / getTotalParagraphsInText(text))
 
 	return averageNumberOfSentencesPerParagraph
