@@ -47,19 +47,19 @@ def getTotalCharactersInText(text: str)-> int:
 	return num_of_characters
 
 
-def getTotalCharactersInFile(file: str)-> int:
+def getTotalCharactersInFile(fileName: str)-> int:
 	"""
 		This function is to get the total numbers of characters in file
 	"""
 	num_of_characters = 0
 	try:
-		with open(filename, "r+") as file:
+		with open(fileName, "r+") as file:
 			content = file.read()
 		num_of_characters = getTotalCharactersInText(content) 
 	except FileNotFoundError as fe:
 		raise fe
 	else:
-		msg = "The file " + filename + " does not exist."
+		msg = "The file " + fileName + " does not exist."
 	return num_of_characters
 
 
@@ -80,19 +80,19 @@ def getTotalWordsInText(text: str)-> int:
 	return num_of_words
 
 
-def getTotalWordsInFile(file: str)-> int:
+def getTotalWordsInFile(fileName: str)-> int:
 	"""
 		This function is to get the total numbers of words in file
 	"""
 	num_of_words = 0
 	try:
-		with open(filename, "r+") as file:
+		with open(fileName, "r+") as file:
 			content = file.read()
 		num_of_words = getTotalWordsInText(content)
 	except FileNotFoundError as fe:
 		raise fe
 	else:
-		msg = "The file " + filename + " does not exist."
+		msg = "The file " + fileName + " does not exist."
 	return num_of_words
 
 
@@ -113,18 +113,18 @@ def getTotalSentencesInText(text: str)-> int:
 	return num_of_sentences
 
 
-def getTotalSentencesInFile(file: str)-> int:
+def getTotalSentencesInFile(fileName: str)-> int:
 	"""
 		This function is get the total numbers of sentences in file
 	"""
 	try:
-		with open(filename, "r") as file:
+		with open(fileName, "r+") as file:
 			content = file.read()
 		num_of_sentences = getTotalSentencesInText(content)
 	except FileNotFoundError as fe:
 		raise fe
 	else:
-		msg = "The file " + filename + " does not exist."
+		msg = "The file " + fileName + " does not exist."
 	return num_of_sentences
 
 

@@ -21,7 +21,7 @@ def main():
 		userlistedCharacter = list(input("Please enter a list of characters:_"))
 		userlistedWords = list(input("Please enter a list of words:_"))
 	"""
-		text statistics functions calls
+		text statistics functions calls for text
 	"""
 	print("The total paragraphs are", getTotalParagraphsInText(userInput), "\n")
 	print("The total characters are", getTotalCharactersInText(userInput), "\n")
@@ -37,10 +37,13 @@ def main():
 	"""
 		text manipulation functions calls
 	"""
-	print("New string after using capitalize(): ", capitalizeFirstLetterOfEverySentences(userInput), "\n") #x
+	print("New string after using capitalize(): ", capitalizeFirstLetterOfEverySentences(userInput), "\n")
 	print("The old word is replaced by: ", replacementSetOfWords({userWord: newWord}, userInput), "\n")
 
 	"""
-		text manipulation functions calls for files
+		text statistics functions calls for files
 	"""
-	print(getTotalParagraphsInFile(fileName))
+	print("The total paragraphs in the file are", getTotalParagraphsInFile(fileName), "\n")
+	print("The total characters in the file are", getTotalCharactersInFile(fileName), "\n")
+	print("The total words in the file are", getTotalWordsInFile(fileName), "\n")
+	print("The total sentences in the file are", getTotalSentencesInFile(fileName), "\n")
