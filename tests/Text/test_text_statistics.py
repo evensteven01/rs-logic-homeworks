@@ -225,7 +225,7 @@ def test_getTotalCountsOfCertainCharacter(paragraph: str, char_to_find: str, exp
 		("", None, {}),
 		("This is a text.", ["z"], {"z": 0}),
 		("This is a text.", ["h"], {"h": 1}),
-		("This is a text.", ["i", "z"], {"i": 2, "z": 1}),
+		("This is a text.", ["i", "z"], {"i": 2, "z": 0}),
 		("This is a text.", ["t"], {"t": 2}),
 		("This is a text. It has one paragraph..\n\nThis is another.", ["T"], {"T": 2}),
 		("This is a text. It has one paragraph.\n\nThis is another paragraph..", ["\n"], {"\n": 2}),

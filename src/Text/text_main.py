@@ -1,6 +1,8 @@
 from src.Text.text_statistics import *
 from src.Text.text_manipulation import capitalizeFirstLetterOfEverySentences, replacementSetOfWords
 
+fileName = "src/Text/dummyData.txt"
+
 def main():
 	automate = input("Do you want to input(i), or hardcode(h)?:_")
 
@@ -37,3 +39,8 @@ def main():
 	"""
 	print("New string after using capitalize(): ", capitalizeFirstLetterOfEverySentences(userInput), "\n") #x
 	print("The old word is replaced by: ", replacementSetOfWords({userWord: newWord}, userInput), "\n")
+
+	"""
+		text manipulation functions calls for files
+	"""
+	print(getTotalParagraphsInFile(fileName))

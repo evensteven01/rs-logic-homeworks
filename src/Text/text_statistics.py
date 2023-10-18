@@ -1,9 +1,6 @@
  # This module produces statistics about text
 import os
 
-filename = "data.text"
-filename2 = "data.json"
-
 def getTotalParagraphsInText(text: str)-> int:
 	"""
 		This function is to get the total numbers of paragraphs in text
@@ -21,19 +18,19 @@ def getTotalParagraphsInText(text: str)-> int:
 	return num_of_paragraph
 
 
-def getTotalParagraphsInFile(file_name: str)-> int:
+def getTotalParagraphsInFile(fileName: str)-> int:
 	"""
 		This function is to get the total numbers of paragraphs in file
 	"""
 	num_of_paragraph = 0
 	try:
-		with open(file_name, "r+") as file:
+		with open(fileName, "r+") as file:
 			content = file.read()
 		num_of_paragraph = getTotalParagraphsInText(content)
 	except FileNotFoundError as fe:
 		raise fe
 	else:
-		msg = "The file " + file_name + " does not exist."
+		msg = "The file " + fileName + " does not exist."
 	return num_of_paragraph
 
 
@@ -146,7 +143,7 @@ def getTotalCountsOfCertainCharacter(certainCharacter: str, text: str)-> int:
 	return num_of_certain_characters
 
 
-def getTotalCountsOfListedCharacters(listedCharacters: list[str], text: str)-> dict[str, int]:
+def getTotalCountsOfListedCharacters(listedCharacterList: list[str], text: str)-> dict[str, int]:
 	"""
 		This function is to get the total numbers of listed characters.
 		In this function, we are allow to reuse other functions if its necessary
@@ -164,18 +161,19 @@ def getTotalCountsOfListedCharacters(listedCharacters: list[str], text: str)-> d
 			"b": 3
 		}
 	"""
-	listed_character_dict = {}
+	listedCharacterDict = {}
 
-	if listed_character_dict is None or text is None:
-		return listed_character_dict
+	if listedCharacterList is None:
+		return listedCharacterDict
 
-	listedCharacters = [ch for ch in text]
+	if text is None:
+		return {ch: 0 for ch in listedCharacterList}
 
-	for lc in listedCharacters:
-		if lc == "":
-			outcome = getTotalCountsOfCertainCharacter(lc, text)
-			listed_character_dict[lc] = outcome
-	return listed_character_dict
+	for listedCharacter in listedCharacterList:
+		if listedCharacter != "":
+			outcome = getTotalCountsOfCertainCharacter(listedCharacter, text)
+			listedCharacterDict[listedCharacter] = outcome
+	return listedCharacterDict
 
 
 def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, int]:
@@ -183,10 +181,13 @@ def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, i
 		This function is to get the total numbers of listed words.
 		In this function, we are allow to reuse other functions if its necessary
 	""" 
-	listed_words_dict = {}
+	listedWordsDict = {}
 
-	if listedWords is None or text is None:
-		return listed_words_dict
+	if listedWords is None:
+		return listedWordsDict
+
+	if text is None:
+		return {w: 0 for w in listedWords}
 
 	words = text.split()
 
@@ -196,8 +197,8 @@ def getTotalCountsOfListedWords(listedWords: list[str], text: str)-> dict[str, i
 			word = word.strip('.?,!')
 			if word == lenWord:
 				outcome += 1
-		listed_words_dict[lenWord] = outcome
-	return listed_words_dict
+		listedWordsDict[lenWord] = outcome
+	return listedWordsDict
 
 
 def getAverageLengthOfWords(text: str)-> int:
@@ -210,7 +211,7 @@ def getAverageLengthOfWords(text: str)-> int:
 	if text is None:
 		return averageLengthOfWords
 
-	words = text.split()
+	words = [w.strip('.?,!') for w in text.split()]
 
 	for word in words:
 		lengthOfWords += len(word)
