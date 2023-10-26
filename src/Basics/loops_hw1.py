@@ -25,13 +25,37 @@ def get_minimum(listOfNumbers: list[float]):
 	return minimumNumber
 
 def get_average(listOfNumbers: list[float]):
-	pass
+	numbers = 0
+
+	if numbers == 0 or listOfNumbers is None:
+		return numbers
+	else:
+		average = (listOfNumbers)
+	return numbers
 
 def get_closest(listOfNumbers: list[float], num: float):
 	pass
 
 def add_x(listOfNumbers: list[float], num: float):
-	pass
+	numbers = []
+
+	if numbers is None or listOfNumbers is None or num is None:
+		return numbers
+
+	num = [n for n in listOfNumbers]
+
+	numbers.append(num)
+
+	return numbers
 
 def sub_x(listOfNumbers: list[float], num: float):
-	pass
+	numbers = []
+
+	if numbers is None or listOfNumbers is None or num is None:
+		return numbers
+
+	num = [n for n in listOfNumbers]
+
+	numbers.append(num)
+
+	return numbers
