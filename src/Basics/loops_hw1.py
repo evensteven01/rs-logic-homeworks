@@ -5,36 +5,51 @@ from src.Basics.utils import get_random_nums
 """ 
 
 def get_maximum(listOfNumbers: list[float]):
-	maximumNumber = None
+	maximum = None
 
 	for value in listOfNumbers:
-		if maximumNumber is None:
-			maximumNumber = value
-		elif maximumNumber < value:
-			maximumNumber = value
-	return maximumNumber
+		if maximum is None:
+			maximum = value
+		elif maximum < value:
+			maximum = value
+	return maximum
 
 def get_minimum(listOfNumbers: list[float]):
-	minimumNumber = None
+	minimum = None
 
 	for value in listOfNumbers:
-		if minimumNumber is None:
-			minimumNumber = value
-		elif minimumNumber > value:
-			minimumNumber = value
-	return minimumNumber
+		if minimum is None:
+			minimum = value
+		elif minimum > value:
+			minimum = value
+	return minimum
 
 def get_average(listOfNumbers: list[float]):
-	numbers = 0
+	sumOfList = 0
+	for i in range(len(listOfNumbers)):
+		sumOfList += listOfNumbers[i]
 
-	if numbers == 0 or listOfNumbers is None:
-		return numbers
-	else:
-		average = (listOfNumbers)
-	return numbers
+		if sumOfList == 0:
+			average = 0
+		else:
+			average = (sumOfList / len(listOfNumbers))
+	return average
 
 def get_closest(listOfNumbers: list[float], num: float):
-	pass
+	# sorting the list of nukbers in ascending order
+	# imitialize a varaible closest_num to the first element of the sorted list
+	# use for loop to iterate over the sorted list
+	# in loop, check if it is closer to num than the varable 'closest_num', then update varable 'closest_num' to be that element
+	# check if an element is greater than num, then should terminate the loop
+	# finally return varable 'closest_num'
+	listOfNumbers.sort()
+	closest_num = listOfNumbers[0]
+	for n in listOfNumbers:
+		if abs(n - num) < abs(closest_num - num):
+			closest_num = n
+		if n > num:
+			break
+	return closest_num
 
 def add_x(listOfNumbers: list[float], num: float):
 	numbers = []
