@@ -8,18 +8,21 @@ def get_maximum(listOfNumbers: list[float]):
 	try:
 		# Assume first number in list is laragest
 		# initally and assign it to variable 'maximum'
-		maximum = listOfNumbers[0]
+		maximum = None
 		# now traverse through the list and compare
 		# each number with 'maximum' value'
 		# whichever is largest assign that value to 'maximum'
+
+		if listOfNumbers is None:
+			return maximum
+
 		for item in listOfNumbers:
-			try:
-				if item > maximum:
-					maximum = item
-				print(maximum)
-			except IndexError as e:
-				print("Error:", e)
-				print("Index", item, "is out of range")
+			if maximum is None:
+				maximum = item
+
+			if item > maximum:
+				maximum = item
+
 	except Exception as e:
 		print("An error has occurred: ", e)
 	
@@ -29,35 +32,40 @@ def get_maximum(listOfNumbers: list[float]):
 
 def get_minimum(listOfNumbers: list[float]):
 	try:
-		minimum = listOfNumbers[0]
+		minimum = None
+
+		if listOfNumbers is None:
+			return minimum
 
 		for item in listOfNumbers:
-			try:
-				if item < minimum:
-					minimum = item
-				print(minimum)
-			except IndexError as e:
-				print("Error:", e)
-				print("Index", item, "is out of range")
+			if minimum is None:
+				minimum = item
+
+			if item < minimum:
+				minimum = item
+
 	except Exception as e:
 		print("An error has occurred: ", e)
+
 	return minimum
 
 def get_average(listOfNumbers: list[float]):
 	try:
+		sumOfList = None
+
+		if listOfNumbers is None:
+			return sumOfList
+
 		sumOfList = 0
-		average = 0
-		for i in range(len(listOfNumbers)):
-			sumOfList += listOfNumbers[i]
-			try:
-				if sumOfList == 0:
-					average = 0
-				else:
-					average = (sumOfList / len(listOfNumbers))
-				print("The average is: ", average)
-			except IndexError as e:
-				print("Error: ", e)
-				print("Index", i, "is out of range")
+
+		for item in listOfNumbers:
+			sumOfList += item
+
+		if len(listOfNumbers) == 0:
+			return None
+		else:
+			average = (sumOfList / len(listOfNumbers))
+
 	except Exception as e:
 		print("An error has occurred: ", e)
 	
@@ -71,8 +79,13 @@ def get_closest(listOfNumbers: list[float], num: float):
 	# check if an element is greater than num, then should terminate the loop
 	# finally return varable 'closestNum'
 	try:
+		closestNum = None
+
+		if listOfNumbers is None or num is None:
+			return closestNum
+
 		listOfNumbers.sort()
-		closestNum = listOfNumbers[0]
+
 		for n in listOfNumbers:
 			try:
 				if abs(n - num) < abs(closestNum - num):
@@ -88,25 +101,29 @@ def get_closest(listOfNumbers: list[float], num: float):
 	return closestNum
 
 def add_x(listOfNumbers: list[float], num: float):
-	numbers = []
+	numbers = None
 
-	if numbers is None or listOfNumbers is None or num is None:
+	newNum = []
+
+	if listOfNumbers is None or num is None:
 		return numbers
 
 	num = [n for n in listOfNumbers]
 
-	numbers.append(num)
+	newNum.append(num)
 
-	return numbers
+	return newNum
 
 def sub_x(listOfNumbers: list[float], num: float):
-	numbers = []
+	numbers = None
 
-	if numbers is None or listOfNumbers is None or num is None:
+	newNum = []
+
+	if listOfNumbers is None or num is None:
 		return numbers
 
 	num = [n for n in listOfNumbers]
 
-	numbers.append(num)
+	newNum.append(num)
 
-	return numbers
+	return newNum
