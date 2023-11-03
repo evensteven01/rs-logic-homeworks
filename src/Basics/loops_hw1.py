@@ -42,7 +42,7 @@ def get_minimum(listOfNumbers: list[float]):
 				minimum = item
 
 			if item < minimum:
-				minimum = item
+				minimum = item    
 
 	except Exception as e:
 		print("An error has occurred: ", e)
@@ -110,7 +110,9 @@ def add_x(listOfNumbers: list[float], num: float):
 
 	num = [n for n in listOfNumbers]
 
-	newNum.append(num)
+	random = [i for i in range(get_random_nums())]
+
+	newNum[random] += len(num)
 
 	return newNum
 
@@ -124,6 +126,8 @@ def sub_x(listOfNumbers: list[float], num: float):
 
 	num = [n for n in listOfNumbers]
 
-	newNum.append(num)
+	random = [i for i in range(get_random_nums())]
+
+	newNum[random] -= len(num)
 
 	return newNum
