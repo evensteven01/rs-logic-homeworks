@@ -1,4 +1,5 @@
 from src.Basics.utils import get_random_nums
+import operator
 
 """
 	Loops Homework 1
@@ -92,42 +93,44 @@ def get_closest(listOfNumbers: list[float], num: float):
 					closestNum = n
 				if n > num:
 					break
+
 			except IndexError as e:
 				print("Error: ", e)
 				print("Index", n, "is out of range")
+
 	except Exception as e:
 		print("An error has occurred: ", e)
 
 	return closestNum
 
 def add_x(listOfNumbers: list[float], num: float):
-	numbers = None
+	try:
+		newNum = None; num = 0
 
-	newNum = []
+		if listOfNumbers is None:
+			return newNum
 
-	if listOfNumbers is None or num is None:
-		return numbers
+		for n in range(listOfNumbers):
+			num = num + operator.add(0, n)
 
-	num = [n for n in listOfNumbers]
+		newNum = list(num)
 
-	random = [i for i in range(get_random_nums())]
-
-	newNum[random] += len(num)
+	except Exception as e:
+		print("An error has occurred: ", e)
 
 	return newNum
 
 def sub_x(listOfNumbers: list[float], num: float):
-	numbers = None
+	try:
+		newNum = None
 
-	newNum = []
+		if listOfNumbers is None:
+			return newNum
 
-	if listOfNumbers is None or num is None:
-		return numbers
+		for n in range(listOfNumbers):
+			num = num - operator.subtract(n, 0)
 
-	num = [n for n in listOfNumbers]
+		newNum = list(num)
 
-	random = [i for i in range(get_random_nums())]
-
-	newNum[random] -= len(num)
-
-	return newNum
+	except Exception as e:
+		print("An error has occurred: ", e)
