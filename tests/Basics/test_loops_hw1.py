@@ -90,7 +90,7 @@ def test_get_closest(numbers: list[float], closest_to: float, exp_closest: float
 	[
 		(None,None, None),
 		(None,1, None),
-		([],1,None),
+		([],1,[]),
 		([2],1,[3]),
 		([2,0,1],.1,[2.1,.1,1.1]),
 		([2,1,2,0],-1,[1,0,1,-1]),
@@ -112,13 +112,13 @@ def test_add_x(numbers: list[float], num: float, exp_numbers: list[float]) -> No
             all([pair[0]==pair[1] for pair in zip(exp_numbers, act_numbers)])
         )
     ])
-	
+	                            
 @pytest.mark.parametrize(
 	"numbers,num,exp_numbers",
 	[
 		(None,None, None),
 		(None,1, None),
-		([],1,None),
+		([],1,[]),
 		([2],1,[1]),
 		([2,0,1],.1,[1.9,-.9,.9]),
 		([2,1,2,0],-1,[3,2,3,1]),
