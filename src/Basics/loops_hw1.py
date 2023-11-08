@@ -1,5 +1,4 @@
 from src.Basics.utils import get_random_nums
-import operator
 
 """
 	Loops Homework 1
@@ -73,64 +72,48 @@ def get_average(listOfNumbers: list[float]):
 	return average
 
 def get_closest(listOfNumbers: list[float], num: float):
-	# sorting the list of numbers in ascending order
-	# initialize a varaible closestNum to the first element of the sorted list
-	# use for loop to iterate over the sorted list
+	# initialize a variable closestNum to the first element of the sorted list
+	# use for loop to iterate over the list
 	# in loop, check if it is closer to num than the varable 'closestNum', then update varable 'closestNum' to be that element
 	# check if an element is greater than num, then should terminate the loop
 	# finally return varable 'closestNum'
-	try:
-		closestNum = None
+	closestNum = None
 
-		if listOfNumbers is None or num is None:
-			return closestNum
+	if listOfNumbers is None or num is None:
+		return closestNum
 
-		listOfNumbers.sort()
+	for n in listOfNumbers:
+		if (closestNum is None):
+			closestNum = n
 
-		for n in listOfNumbers:
-			try:
-				if abs(n - num) < abs(closestNum - num):
-					closestNum = n
-				if n > num:
-					break
-
-			except IndexError as e:
-				print("Error: ", e)
-				print("Index", n, "is out of range")
-
-	except Exception as e:
-		print("An error has occurred: ", e)
+		elif abs(n - num) < abs(closestNum - num):
+			closestNum = n
 
 	return closestNum
 
 def add_x(listOfNumbers: list[float], num: float):
-	try:
-		newNum = None; num = 0
+	newNum = None
 
-		if listOfNumbers is None:
-			return newNum
+	if listOfNumbers is None:
+		return newNum
 
-		for n in range(listOfNumbers):
-			num = num + operator.add(0, n)
+	for i, n in enumerate(listOfNumbers):
+		listOfNumbers[i] += num
 
-		newNum = list(num)
-
-	except Exception as e:
-		print("An error has occurred: ", e)
+	newNum = listOfNumbers
 
 	return newNum
 
 def sub_x(listOfNumbers: list[float], num: float):
-	try:
-		newNum = None
+	
+	newNum = None
 
-		if listOfNumbers is None:
-			return newNum
+	if listOfNumbers is None:
+		return newNum
 
-		for n in range(listOfNumbers):
-			num = num - operator.subtract(n, 0)
+	for i, n in enumerate(listOfNumbers):
+		listOfNumbers[i] -= num
 
-		newNum = list(num)
+	newNum = listOfNumbers
 
-	except Exception as e:
-		print("An error has occurred: ", e)
+	return newNum
