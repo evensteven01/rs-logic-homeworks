@@ -111,7 +111,7 @@ def sub_x(listOfNumbers: list[float], num: float):
 	if listOfNumbers is None:
 		return newNum
 
-	for i, n in enumerate(listOfNumbers):
+	for i, n in enumerate(reversed(listOfNumbers)):
 		listOfNumbers[i] -= num
 
 	newNum = listOfNumbers
