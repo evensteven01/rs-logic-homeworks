@@ -120,7 +120,7 @@ def test_add_x(numbers: list[float], num: float, exp_numbers: list[float]) -> No
 		(None,1, None),
 		([],1,[]),
 		([2],1,[1]),
-		([2,0,1],.1,[1.9,-.9,.9]),
+		([2,0,1],.1,[1.9,-.1,.9]),
 		([2,1,2,0],-1,[3,2,3,1]),
 	]
 )

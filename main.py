@@ -11,4 +11,4 @@ from src.Basics.basic_main import main as basic_main
 if __name__ == '__main__':
 	#shapes_main()
 	#text_main()
-	#basic_main()
+	basic_main()
