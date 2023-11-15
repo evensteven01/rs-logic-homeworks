@@ -5,69 +5,58 @@ from src.Basics.utils import get_random_nums
 """ 
 
 def get_maximum(listOfNumbers: list[float]):
-	try:
-		# Assume first number in list is laragest
-		# initally and assign it to variable 'maximum'
-		maximum = None
-		# now traverse through the list and compare
-		# each number with 'maximum' value'
-		# whichever is largest assign that value to 'maximum'
+	# Assume first number in list is laragest
+	# initally and assign it to variable 'maximum'
+	maximum = None
+	# now traverse through the list and compare
+	# each number with 'maximum' value'
+	# whichever is largest assign that value to 'maximum'
 
-		if listOfNumbers is None:
-			return maximum
+	if listOfNumbers is None:
+		return maximum
 
-		for item in listOfNumbers:
-			if maximum is None:
-				maximum = item
+	for item in listOfNumbers:
+		if maximum is None:
+			maximum = item
 
-			if item > maximum:
-				maximum = item
-
-	except Exception as e:
-		print("An error has occurred: ", e)
+		if item > maximum:
+			maximum = item
 	
 	# after complete traversing the list
 	# return the 'maximum'
 	return maximum
 
 def get_minimum(listOfNumbers: list[float]):
-	try:
-		minimum = None
+	minimum = None
 
-		if listOfNumbers is None:
-			return minimum
+	if listOfNumbers is None:
+		return minimum
 
-		for item in listOfNumbers:
-			if minimum is None:
-				minimum = item
+	for item in listOfNumbers:
+		if minimum is None:
+			minimum = item
 
-			if item < minimum:
-				minimum = item    
+		if item < minimum:
+			minimum = item    
 
-	except Exception as e:
-		print("An error has occurred: ", e)
 
 	return minimum
 
 def get_average(listOfNumbers: list[float]):
-	try:
-		sumOfList = None
+	sumOfList = None
 
-		if listOfNumbers is None:
-			return sumOfList
+	if listOfNumbers is None:
+		return sumOfList
 
-		sumOfList = 0
+	sumOfList = 0
 
-		for item in listOfNumbers:
-			sumOfList += item
+	for item in listOfNumbers:
+		sumOfList += item
 
-		if len(listOfNumbers) == 0:
-			return None
-		else:
-			average = (sumOfList / len(listOfNumbers))
-
-	except Exception as e:
-		print("An error has occurred: ", e)
+	if len(listOfNumbers) == 0:
+		return None
+	else:
+		average = (sumOfList / len(listOfNumbers))
 	
 	return average
 
