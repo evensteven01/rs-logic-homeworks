@@ -23,8 +23,8 @@ def example():
     """ Just an example of how to call _catcher """
     _register(1)
 
-def create_vars():
-    pass
+def create_vars(num: int, text: str):
+    _register(2, "")
 
 def create_list():
     pass
