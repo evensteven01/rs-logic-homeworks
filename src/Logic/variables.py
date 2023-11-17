@@ -24,16 +24,16 @@ def example():
     _register(1)
 
 def create_vars(num: int, text: str):
-    _register(2, "")
+    _register(1, "")
 
-def create_list():
-    pass
+def create_list(num1: list[int], num2: list[int], num3: list[int]):
+    _register(1, 2, 3)
 
-def modify_list():
-    pass
+def modify_list(num1: list[int], num2: list[int], num3: list[int]):
+    _register(1, 2, 3)
 
-def add_item_to_list():
-    pass
+def add_item_to_list(stringList: list[str], stringList2: list[str]):
+    _register(1, 2)
 
 def create_str_dict():
     pass
