@@ -26,23 +26,23 @@ def example():
 def create_vars(num: int, text: str):
     _register(1, "")
 
-def create_list(num1: list[int], num2: list[int], num3: list[int]):
+def create_list(*num1: list[int], *num2: list[int], *num3: list[int]):
     _register(1, 2, 3)
 
-def modify_list(num1: list[int], num2: list[int], num3: list[int]):
+def modify_list(*num1: list[int], *num2: list[int], *num3: list[int]):
     _register(1, 2, 3)
 
-def add_item_to_list(stringList: list[str], stringList2: list[str]):
-    _register(1, 2)
+def add_item_to_list(*stringList: list[str], *stringList2: list[str]):
+    _register([""], [""])
 
-def create_str_dict():
-    pass
+def create_str_dict(**strinDict1: dict[str, str], **stringDict2: dict[str, str]):
+    _register(strinDict1[""], stringDict2[""])
 
-def create_int_dict():
-    pass
+def create_int_dict(**intDict1: dict[int, int], **intDict2: dict[int, int]):
+    _register(intDict1[0], intDict2[0])
 
-def create_mix_dict():
-    pass
+def create_mix_dict(**mixedDict1: dict[str, int], **mixedDict2: dict[int, str]):
+    _register(mixedDict1[""], mixedDict2[0])
 
 def update_dict():
     pass
