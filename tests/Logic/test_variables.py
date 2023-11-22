@@ -113,7 +113,34 @@ def test_create_int_dict(mocker: MockerFixture):
     register = mocker.patch("src.Logic.variables._cregister")
     
     # Act
-    create_mix_dict()
+    create_int_dict()
+
+    # Assert
+    call1 = register.call_args_list[0]
+    call2 = register.call_args_list[1]
+    arg1_1 = call1[0][0]
+    arg1_2 = call2[0][0]
+    assert isinstance(arg1_1, dict)
+    assert isinstance(arg1_2, dict)
+    assert len(arg1_1) == 2
+    assert len(arg1_2) == 3
+    for key, val in arg1_1.items():
+        if isinstance(key, int):
+            assert isinstance(val, int)
+        else:
+            assert False
+    for key, val in arg1_2.items():
+        if isinstance(key, int):
+            assert isinstance(val, int)
+        else:
+            assert False
+
+def test_create_mixed_dict(mocker: MockerFixture):
+    # Arrange
+    register = mocker.patch("src.Logic.variables._cregister")
+
+    # Act
+    create_mixed_dict()
 
     # Assert
     call1 = register.call_args_list[0]
@@ -140,6 +167,7 @@ def test_create_int_dict(mocker: MockerFixture):
             assert isinstance(val, list)
         else:
             assert False
+
 
 def test_update_dict(mocker: MockerFixture):
     # Arrange

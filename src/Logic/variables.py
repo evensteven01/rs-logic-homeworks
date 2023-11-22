@@ -23,33 +23,88 @@ def example():
     """ Just an example of how to call _catcher """
     _register(1)
 
-def create_vars(num: int, text: str):
-    _register(1, "programming")
+def create_vars():
 
-def create_list(*num: list[int, int, int]):
-    _register([1, 2, 3])
+    number = 7
+    text = "name"
 
-def modify_list(*num: list[int, int, int]):
-    _register([1, 2, 3])
+    _register(number, text)
 
-def add_item_to_list(*stringList: list[str, str]):
-    _register(["name", "thing"])
+def create_list():
+    number = [1, 2, 3]
 
-def create_str_dict(**strinDict1: dict[str, str], **stringDict2: dict[str, str]):
-    _register(strinDict1["fname": "Fred"], stringDict2["lname": "Jones"])
+    _register(number)
 
-def create_int_dict(**intDict1: dict[int, int], **intDict2: dict[int, int]):
-    _register(intDict1[0: 3], intDict2[0: 7])
+def modify_list():
+   number = [1, 2, 3] # [2,3,4]
 
-def create_mix_dict(**mixedDict1: dict[str, int], **mixedDict2: dict[int, str]):
-    _register(mixedDict1["name": 6], mixedDict2[0]: "Davis")
+   _register(number)
+
+   for i, v in enumerate(number):
+        number[i] += 1
+
+   _register(number)
+
+def add_item_to_list():
+    text = ["fname", "lname"]
+
+    _register(text)
+
+    text.append("mname")
+
+    _register(text)
+
+def create_str_dict():
+    stringDict = {"fname": "Bob", "lname": "Davis"}
+
+    _register(stringDict)
+
+    stringDict["mname"] = ".L"
+
+    _register(stringDict)
+
+def create_int_dict():
+    numDict = {0: 3, 1: 7}
+
+    _register(numDict)
+
+    numDict[2] = 10
+
+    _register(numDict)
+
+def create_mixed_dict():
+    mixedDict = {"fname": 1, 0: "Davis"}
+
+    _register(mixedDict)
+
+    mixedDict[4.0] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    _register(mixedDict)
 
 def update_dict():
-    pass
+    updateDict = {"fname": "Billy", "lname": 7, 0: "Davis", 4: 100, 5.4: 7.9, "fun": 7.6, 5.9: "strict", 10: -5.6}
+
+    _register(updateDict)
+
+    updateDict.update({"fun": -5.4})
+
+    _register(updateDict)
 
 def remove_item_dict():
-    pass
+    anyDict = {0: 4, "string": "Wilfred"}
 
-def build_dict(*uniqueString: list[str, str, str], *uniqueInt: list[int, int, int]):
-    _register(["fname", "lname", "mname"], [1, 2, 3])
- 
+    _register(anyDict)
+
+    del anyDict["string"]
+
+    _register(anyDict)
+
+def build_dict():
+    stringList = ["name", "place", "thing"]
+    intList = [1, 2, 3]
+
+    _register(stringList, intList)
+
+    buildDict = {stringList[i]: intList[i] for i in range(len(stringList))}
+
+    _register(buildDict)
