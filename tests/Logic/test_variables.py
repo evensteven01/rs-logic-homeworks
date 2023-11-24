@@ -50,7 +50,7 @@ def test_create_list(mocker: MockerFixture):
 def test_modify_list(mocker: MockerFixture):
         # Arrange
     register = mocker.patch("src.Logic.variables._cregister")
-    
+     
     # Act
     modify_list()
 
