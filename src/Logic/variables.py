@@ -19,10 +19,6 @@ def _register(*args, **kwargs):
 def _cregister(*args, **kwargs):
     pass
 
-def example():
-    """ Just an example of how to call _catcher """
-    _register(1)
-
 def create_vars():
 
     number = 7
@@ -41,7 +37,7 @@ def modify_list():
    _register(number)
 
    for i, v in enumerate(number):
-        number[i] += 1
+        number[i] += 1   
 
    _register(number)
 
