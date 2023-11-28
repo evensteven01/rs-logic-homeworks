@@ -16,6 +16,9 @@ def _register(*args, **kwargs):
     
     _cregister(*narg, **nkwargs)
 
+def example(*args, **kwargs):
+    _register(1)
+
 def _cregister(*args, **kwargs):
     pass
 
