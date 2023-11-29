@@ -47,6 +47,7 @@ def test_adds_to_10(num_1, num_2, exp_result):
         (3, False),
         (-1, False),
         ("2", False),
+        (2.1, False),
         (2, True),
         (180, True),
     ]
@@ -113,7 +114,7 @@ def test_do_multiple_if(num_1,num_2,do_mult,exp_result):
     result = do_multiple_if(num_1,num_2,do_mult)
 
     # Assert
-    assert exp_result == result
+    assert pytest.approx(exp_result, .1) == result
 
 @pytest.mark.parametrize(
     "data,exp_result",

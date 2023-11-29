@@ -2,60 +2,30 @@ from src.Logic.variables import *
 from src.Logic.boolean_logic import *
 
 def main():
-    automate = input("Do you want to hardcode(h)?:_")
-
-    if automate.lower() == "h":
-        stringUser = '''
-            "What function(s) do you want?\n
-            Please select these options:
-            (1 for create_vars, 
-            2 for create_list, 
-            3 for modify_list, 
-            4 for add_item_to_list, 
-            5 for create_str_dict, 
-            6 for create_int_dict,
-            7 for create_mixed_dict,
-            8 for update_dict,
-            9 for remove_item_dict,
-            10 for build_dict)_"
-        '''
-
-    function = int(input(stringUser))
-
+    
     """
         Logic's functions calls
     """
+    create_vars()
+    create_list()
+    modify_list()
+    add_item_to_list()
+    create_str_dict()
+    create_int_dict()
+    create_mixed_dict()
+    update_dict()
+    remove_item_dict()
+    build_dict()
 
-    match function:
-        case 1:
-            print("The integer and string are: ", create_vars())
-        case 2:
-            print("The list of integers are: ", create_list())
-        case 3:
-            print("The modified list of integers are: ", modify_list())
-        case 4:
-            print("This list looks like after added item is inserted: ", add_item_to_list())
-        case 5:
-            print("The string dictionary looks like: ", create_str_dict())
-        case 6:
-            print("The integer dictionary looks like: ", create_int_dict())
-        case 7:
-            print("The mixed dictionary looks like: ", create_mixed_dict())
-        case 8:
-            print("The update dictionary looks like: ", update_dict())
-        case 9:
-            print("This dictionary looks like after a certain item has been removed: ", remove_item_dict())
-        case 10:
-            print("This dictionary looks like: ", build_dict())
-        case _:
-            print("None these functions will ever called")
+    """
+        Logic's boolean functions calls
+    """
 
-
-    if automate.lower() == "h":
-
-        userInput = any(input("Enter any value?:_"))
+    automate = input("Enter your input(i)?:_")
+                    
+    if automate.lower() == "i":
         
-        stringUser2 = '''
+        stringUser = '''
             "What function(s) do you want?\n
             Please select these options:
             (1 for is_1, 
@@ -68,28 +38,34 @@ def main():
             8 for check_type)_"
         '''
 
-    boolean_function = int(input(stringUser2))
+        userInput = any(input("Enter any value?:_"))
+        userInput2 = any(input("Enter any value?:_"))
+        useraAnyInput  = any(input("Enter any value?:_"))
+        userAny2Input = any(input("Enter any?:_"))
+        userFloat1Input = float(input("Enter float1?:_"))
+        userFloat2Input = float(input("Enter float2?:_"))
+        userBooleanInput = bool(input("Enter boolean?:_"))
+        userStrInput = input("Enter string?:_")
+        userAny3Input = any(input("Enter any?:_"))
 
-    """
-        Logic's boolean functions calls
-    """
+    boolean_function = int(input(stringUser))
 
     match boolean_function:
         case 1:
             print("The result of this function is: ", is_1(userInput))
         case 2:
-            print("The result of this function is: ", adds_to_10(userInput, userInput))
+            print("The result of this function is: ", adds_to_10(userInput, userInput2))
         case 3: 
             print("The result of this function is: ", is_even(userInput))
         case 4:
-            print("The result of this function is: ", is_number(userInput))
+            print("The result of this function is: ", is_number(userAnyInput))
         case 5:
-            print("The result of this function is: ", is_string(userInput))
+            print("The result of this function is: ", is_string(userAny2Input))
         case 6:
-            print("The result of this function is: ", do_multiple_if(userInput, userInput, userInput))
+            print("The result of this function is: ", do_multiple_if(userFloat1Input, userFloat2Input, userBooleanInput))
         case 7:
-            print("The result of this function is: ", string_even_length(userInput))
+            print("The result of this function is: ", string_even_length(userStrInput))
         case 8:
-            print("The result of this function is: ", check_type(userInput))
+            print("The result of this function is: ", check_type(userAny3Input))
         case _:
             print("None these functions will ever called")

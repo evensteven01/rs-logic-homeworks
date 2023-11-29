@@ -11,5 +11,4 @@ from src.Logic.logic_main import main as logic_main
 if __name__ == '__main__':
     #shapes_main()
     #text_main()
-    #logic_main
-	pass
+    logic_main()

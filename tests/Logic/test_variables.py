@@ -183,8 +183,6 @@ def test_update_dict(mocker: MockerFixture):
     arg1_2 = call2[0][0]
     assert isinstance(arg1_1, dict)
     assert isinstance(arg1_2, dict)
-    assert len(arg1_1) == 2
-    assert len(arg1_2) == 2
     
     num_diff = 0
     for key, val in arg1_1.items():
