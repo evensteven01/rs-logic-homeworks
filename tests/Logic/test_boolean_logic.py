@@ -1,4 +1,9 @@
+from random import randint
+from typing import Union
+
+from faker import Faker
 import pytest
+
 from src.Logic.boolean_logic import *
 
 
@@ -154,6 +159,113 @@ def test_check_type(data,exp_result):
     # Arrange
     # Act
     result = check_type(data)
+
+    # Assert
+    assert exp_result == result
+
+
+@pytest.mark.parametrize(
+    "num1,num2,answer,operation,correct_answer,error_exp",
+    [
+        (1,2,3,"+",True, False),
+        (1,2,4,"+",False, False),
+        (2,3,-1,"-",True, False),
+        (2,3,-1,"-",True, False),
+        (2,-3,5,"-",True, False),
+        (2,-3,-6,"*",True, False),
+        (2,0,0,"*",True, False),
+        (2,1,2,"/",True, False),
+        (2.2,1.1,2,"/",True, False),
+        (2.2,2,1,"/",False, False),
+        (2.2,2,1,"^",False, True),
+    ]
+)
+def test_check_type(num1: float, num2: float, answer: float, operation: str, correct_answer: bool, error_exp: bool):
+    # Arrange
+    # Act & Assert
+    if error_exp:
+        with pytest.raises(NotImplementedError) as exc:
+            result = correct_math(num1, num2, answer, operation)
+    else:
+        result = correct_math(num1, num2, answer, operation)
+        assert correct_answer == result
+
+@pytest.mark.parametrize(
+    "sentence,needle,exp_answer",
+    [
+        ("This is a sentence","is",True),
+        ("This is a sentence","be",False),
+        ("This is a sentence","s a",True),
+        ("This is a sentence","This",True),
+        ("This is a sentence","is a",True),
+        ("This is a sentence","iS",False),
+    ]
+)
+def test_contains_word(sentence: str, needle: str, exp_answer):
+    # Arrange
+    # Act
+    answer = contains_word(sentence, needle)
+    # Assert
+    assert exp_answer == answer
+
+
+@pytest.mark.parametrize(
+    "list_of_things,exp_result",
+    [
+        (["1", 1, 2, 3],False),
+        (["This", "This", "yes"],True),
+        (["This", "this", "no"],True),
+        ([2, 2.1, 3],False),
+        ([2.0, 2, 4],True),
+        ([1, 2, 3, 4, 5, 6, 7, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.3, 8.9, 9, 10],True),
+        ([True, False],False),
+        ([],False),
+    ]
+)
+def test_has_duplicates(list_of_things: list[Any], exp_result: bool):
+    # Arrange
+    # Act
+    result = has_duplicates(list_of_things)
+    # Assert
+    assert exp_result == result
+
+
+@pytest.mark.parametrize(
+    "has_duplicate",
+    [
+        (True,),
+        (False,),
+    ]
+)
+def test_has_duplicates_huge(has_duplicate: bool):
+    # Arrange
+    ct = 50000
+    huge_list = [{randint() for i in range(ct)}]
+    if has_duplicate:
+        rand_index = randint(1,ct-1)
+        huge_list[rand_index] = huge_list[rand_index-1]
+    
+    # Act
+    result = has_duplicates(huge_list)
+    # Assert
+    assert has_duplicate == result
+
+@pytest.mark.parametrize(
+    "last_name_list,exp_result",
+    [
+        (["Fordham", "Greiger", "Lanzer"], False),
+        (["Rodman", "Thompson", "Rodman"], True),
+        (["Fordham", "Ford", "Nelson"], False),
+        (["Fordham", "Ford", "Nelson", "Einstein", "Basten", "Dresdo", "Franks", "Frenchmen", "Smith", "Ironman"], False),
+        (["Fordham", "Ford", "Nelson", "Einstein", "Basten", "Dresdo", "Franks", "Frenchmen", "Smith", "Ironman", "Basten", "Kurkowski"], True),
+    ]
+)
+def test_any_family(last_name_list, exp_result: bool, faker: Faker):
+    # Arrange
+    person_list = [Person(faker.first_name(), l_name) for l_name in last_name_list]
+
+    # Act
+    result = any_family(person_list)
 
     # Assert
     assert exp_result == result

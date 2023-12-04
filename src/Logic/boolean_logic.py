@@ -1,5 +1,7 @@
 from typing import Any
 
+from .models import Person
+
 def is_1(data: int) -> bool:
 
     if data == 1:
@@ -64,3 +66,15 @@ def check_type(data: Any) -> str:
         return "number"
     else:
         return "other"
+
+def correct_math(num1, num2, answer, operation):
+    pass
+
+def contains_word(setence: str, needle: str):
+    pass
+
+def has_duplicates(list_of_things: list[Any]):
+    pass
+
+def any_family(persons: list[Person]):
+    pass
