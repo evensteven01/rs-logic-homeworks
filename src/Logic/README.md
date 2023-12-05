@@ -40,3 +40,8 @@ We'll look at variables, functions, lists, dicts, if statements, and loops.
 - Write function do_multiple_if that takes three parameters, one float, a second float, and a boolean. If that boolean is True, multiply the two numbers and return the result. If the boolean is False, just return the first number.
 - Write function string_even_length that takes a string as parameter, and returns True if length is even, False otherwise.
 - Write function check_type that takes a variable of any type, and returns "boolean" if it is a boolean, "string" if it is a string, "number" if it is a float or int, or "other" if it is anything else.
+
+- Write function correct_math that takes three floats, num1, num2, and answer, and a string representing a mathematical operation, "*", "/", "+", "-". The function returns true if performing the operation with the numbers matches the answer given. Example correct_math(num1=3.1, num2=4.2, answer=7.3, operation="+") should return true, beucase 3.1+4.2 does equal 7.3. If the opreation is not recognized, you should raise a NotImplementedError error (this is a built in error).
+- Write function contains_word that takes a string "sentence" and another string "needle", and returns True if the needle is in the sentence, False otherwise.
+- Write function has_duplicates that takes a list of any type, and returns True if it contains any duplicates.
+- Write function any_family that takes a list of type Person and returns true if any of them have the same last name.
