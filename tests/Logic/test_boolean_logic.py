@@ -214,7 +214,7 @@ def test_contains_word(sentence: str, needle: str, exp_answer):
     [
         (["1", 1, 2, 3],False),
         (["This", "This", "yes"],True),
-        (["This", "this", "no"],True),
+        (["This", "this", "no"],False),
         ([2, 2.1, 3],False),
         ([2.0, 2, 4],True),
         ([1, 2, 3, 4, 5, 6, 7, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.3, 8.9, 9, 10],True),
@@ -233,17 +233,17 @@ def test_has_duplicates(list_of_things: list[Any], exp_result: bool):
 @pytest.mark.parametrize(
     "has_duplicate",
     [
-        (True,),
-        (False,),
+        True,
+        False,
     ]
 )
 def test_has_duplicates_huge(has_duplicate: bool):
     # Arrange
     ct = 50000
-    huge_list = [{randint() for i in range(ct)}]
+    huge_list = list({randint(0, 1000000) for i in range(ct)})
     if has_duplicate:
-        rand_index = randint(1,ct-1)
-        huge_list[rand_index] = huge_list[rand_index-1]
+        rand_index = randint(1,ct-2)
+        huge_list[rand_index-1] = huge_list[rand_index-2]
     
     # Act
     result = has_duplicates(huge_list)
