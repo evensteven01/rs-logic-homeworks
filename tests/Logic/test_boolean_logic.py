@@ -180,7 +180,7 @@ def test_check_type(data,exp_result):
         (2.2,2,1,"^",False, True),
     ]
 )
-def test_check_type(num1: float, num2: float, answer: float, operation: str, correct_answer: bool, error_exp: bool):
+def test_correct_math(num1: float, num2: float, answer: float, operation: str, correct_answer: bool, error_exp: bool):
     # Arrange
     # Act & Assert
     if error_exp:

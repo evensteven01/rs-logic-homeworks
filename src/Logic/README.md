@@ -30,7 +30,6 @@ We'll look at variables, functions, lists, dicts, if statements, and loops.
 - Create function build_dict that will:
     1. Create two lists. One with 3 unique strings in it, and another with three ints in it. Call _register with the both lists.
     2. Create a dict from these two lists, with the strings as keys, and ints as values. The first string should be the key for the first int, the second string for the second int, and so on. Call _register with the dict.
-
 ## Boolean Logic
 - Write function called is_1 that takes an integer as a paramater, and returns True if that integer equals 1, otherwise return false.
 - Write function called adds_to_10 that takes two integers as parameters, and returns True if the two add up to 10, otherwise False.
@@ -40,7 +39,6 @@ We'll look at variables, functions, lists, dicts, if statements, and loops.
 - Write function do_multiple_if that takes three parameters, one float, a second float, and a boolean. If that boolean is True, multiply the two numbers and return the result. If the boolean is False, just return the first number.
 - Write function string_even_length that takes a string as parameter, and returns True if length is even, False otherwise.
 - Write function check_type that takes a variable of any type, and returns "boolean" if it is a boolean, "string" if it is a string, "number" if it is a float or int, or "other" if it is anything else.
-
 - Write function correct_math that takes three floats, num1, num2, and answer, and a string representing a mathematical operation, "*", "/", "+", "-". The function returns true if performing the operation with the numbers matches the answer given. Example correct_math(num1=3.1, num2=4.2, answer=7.3, operation="+") should return true, beucase 3.1+4.2 does equal 7.3. If the opreation is not recognized, you should raise a NotImplementedError error (this is a built in error).
 - Write function contains_word that takes a string "sentence" and another string "needle", and returns True if the needle is in the sentence, False otherwise.
 - Write function has_duplicates that takes a list of any type, and returns True if it contains any duplicates.

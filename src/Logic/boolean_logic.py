@@ -2,6 +2,8 @@ from typing import Any
 
 from .models import Person
 
+import re
+
 def is_1(data: int) -> bool:
 
     if data == 1:
@@ -67,14 +69,59 @@ def check_type(data: Any) -> str:
     else:
         return "other"
 
-def correct_math(num1, num2, answer, operation):
-    pass
+def correct_math(num1: float, num2: float, answer: float, operation: str):
+    
+    if operation == "*":
+        if (num1 * num2) == answer:
+            return True
+        else:
+            return False
 
-def contains_word(setence: str, needle: str):
-    pass
+    elif operation == "/":
+        if (num1 / num2) == answer:
+            return True
+        else:
+            return False
+
+    elif operation == "+":
+        if (num1 + num2) == answer:
+            return True
+        else:
+            return False
+
+    elif operation == "-":
+        if (num1 - num2) == answer:
+           return True
+        else:
+            return False
+
+    elif operation == "^":
+        if (num1 ^ num2) == answer:
+            return True
+        else:
+            return False
+    else:
+        raise NotImplementedError
+
+def contains_word(sentence: str, needle: str):
+
+    result = re.findall(needle, sentence)
+
+    if result == needle:
+        return True
+    else:
+        return False                                                                                                                                                                                               
 
 def has_duplicates(list_of_things: list[Any]):
-    pass
+
+    newlist = [] # empty list to hold unique elements from the list
+    duplist = [] # empty list to hold the duplicate elements from the list
+
+    for i in list_of_things:
+        if i not in newlist:
+            newlist.append(i)
+        else:
+            duplist.append(i) # this method catches the first duplicate entries and appends them to the list
 
 def any_family(persons: list[Person]):
     pass
