@@ -25,7 +25,7 @@ def test_return_greater(arg1, arg2, exp_result):
     # Arrage & Act
     result = return_greater(arg1,arg2)
     # Assert
-    assert result == exp_result
+    assert exp_result == result
 
 @pytest.mark.parametrize(
     "arg1,arg2,exp_result",
@@ -53,7 +53,7 @@ def test_combine_first_two(arg1: str, arg2: str, exp_result: str, mocker: Mocker
     ]
 
 @pytest.mark.parametrize(
-    "arg1,arg2,arg3",
+    "arg1,arg2,arg3",                                                              
     [
         ("123","224","456"),
         ("Bobby","car","Boca"),
