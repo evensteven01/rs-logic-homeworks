@@ -49,7 +49,7 @@ def test_combine_first_two(arg1: str, arg2: str, exp_result: str, mocker: Mocker
     assert result == exp_result
     assert spy_get_first_two_letters.call_args_list == [
         call(arg1),
-        call(arg2)
+        call(arg2),
     ]
 
 @pytest.mark.parametrize(
@@ -88,7 +88,7 @@ def test_positional_args(arg1: str, arg2: str, arg3: str, mocker: MockerFixture)
 )
 def test_sum_numbers(lon: list, exp_result, mocker: MockerFixture):
     # Arrange & # Act
-    result = sum_numbers(*lon)
+    result = sum_numbers(lon)
     # Assert
     assert exp_result == result
 
@@ -103,7 +103,7 @@ def test_sum_numbers(lon: list, exp_result, mocker: MockerFixture):
 )
 def test_try_kwargs(string: str, integer: int, flt: float, boolean: bool, lst: list, mocker: MockerFixture):
     # Arrange
-    register = mocker.patch("src.Logic.functions._cregister")
+    register = mocker.patch("src.Logic.functions._register")
 
     # Act
     try_kwargs(string, integer, flt, boolean, lst)

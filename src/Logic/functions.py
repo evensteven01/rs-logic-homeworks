@@ -58,12 +58,7 @@ def positional_args(arg1: str, arg2: str, arg3: str):
 
 def sum_numbers(numbers):
     
-    numbers = None
-
     total = 0
-
-    if numbers is None:
-        return numbers
 
     for i in numbers:
         total += int(i)
@@ -84,5 +79,5 @@ def sum_if_param_name_starts_with_a(arg_names: list[str], arg_values: list[int])
     values = arg_values
 
     for val in values:
-        if names[0] == "a":
+        if names[0] == "a": 
             values += val
