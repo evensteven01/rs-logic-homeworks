@@ -71,13 +71,16 @@ def try_kwargs(string: str, integer: int, flt: float, boolean: bool, lst: list):
     _register(lst, boolean, flt, integer, string)
     _register(string, lst, integer, boolean, flt)
 
-def sum_if_param_name_starts_with_a(arg_names: list[str], arg_values: list[int]):
+def sum_if_param_name_starts_with_a(**kwargs):
 
-    param_names = PyDictionary()
+    names = PyDictionary()
 
-    names = arg_names
-    values = arg_values
+    meaning = names.meaning(kwargs)
 
-    for val in values:
-        if names[0] == "a": 
-            values += val
+    total = 0
+
+    for v in meaning:
+        if meaning[v] == "a":
+            total += v
+
+    return total
