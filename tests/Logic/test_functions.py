@@ -103,7 +103,7 @@ def test_sum_numbers(lon: list, exp_result, mocker: MockerFixture):
 )
 def test_try_kwargs(string: str, integer: int, flt: float, boolean: bool, lst: list, mocker: MockerFixture):
     # Arrange
-    register = mocker.patch("src.Logic.functions._register")
+    register = mocker.patch("src.Logic.functions._cregister")
 
     # Act
     try_kwargs(string, integer, flt, boolean, lst)

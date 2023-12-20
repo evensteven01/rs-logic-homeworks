@@ -42,6 +42,9 @@ def _get_first_two_letters(arg1: str):
     if arg1 == "":
         return ""
 
+    if len(arg1) == 1:
+        return arg1
+
     return arg1[0] + arg1[1]
 
 def combine_first_two(arg1: str, arg2: str):
@@ -67,16 +70,19 @@ def sum_numbers(numbers):
 
 def try_kwargs(string: str, integer: int, flt: float, boolean: bool, lst: list):
 
-    _register({string}, {integer}, {flt}, {boolean}, {lst})
-    _register({lst}, {boolean}, {flt}, {integer}, {string})
-    _register({string}, {lst}, {integer}, {boolean}, {flt})
+    _register(string = string, integer = integer, flt = flt, boolean = boolean, lst = lst)
+    _register(lst = lst, boolean = boolean, flt = flt, integer = integer, string = string)
+    _register(string = string, lst = lst, integer = integer, boolean = boolean, flt = flt)
 
+# sum_if_param_name_starts_with_a() -> 0
+# sum_if_param_name_starts_with_a(a=3, abby=5, craig=6) -> 8
+# sum_if_param_name_starts_with_a(bobby=6, johnny=10, greg=True) -> 0
 def sum_if_param_name_starts_with_a(**kwargs):
 
     total = 0
 
     for key, value in kwargs.items():
-        if kwargs[key] == "a":
-            total += int(value)
+        if key[0] == "a":
+            total += value
 
     return total
