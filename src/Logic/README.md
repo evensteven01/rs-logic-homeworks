@@ -30,6 +30,7 @@ We'll look at variables, functions, lists, dicts, if statements, and loops.
 - Create function build_dict that will:
     1. Create two lists. One with 3 unique strings in it, and another with three ints in it. Call _register with the both lists.
     2. Create a dict from these two lists, with the strings as keys, and ints as values. The first string should be the key for the first int, the second string for the second int, and so on. Call _register with the dict.
+
 ## Boolean Logic
 - Write function called is_1 that takes an integer as a paramater, and returns True if that integer equals 1, otherwise return false.
 - Write function called adds_to_10 that takes two integers as parameters, and returns True if the two add up to 10, otherwise False.
@@ -53,3 +54,15 @@ For this section of functions, its important to also pay attention to type annot
 - Write a function named sum_numbers that takes a variable number of numbers. Do not use a list or dict. You should be able to call it like sum_numbers(), sum_numbers(1,2), sum_numbers(3, 64, 86, -39, 235), etc. To do this, read about variable-length argument lists https://realpython.com/defining-your-own-python-function/#variable-length-argument-lists.
 - Write a function named try_kwargs that takes a string param named string, an integer named integer, a float named flt, a boolean named boolean, and a list named lst. Then call _register with the args in that same order. Call _register again with the args in the order lst, boolean, flt, integer, string. Finally call it a third time with the args in order string, lst, integer, boolean, flt. Read more about keyword arguments here: https://realpython.com/defining-your-own-python-function/#keyword-arguments.
 - Write a function named sum_if_param_name_starts_with_a that takes a variable number of keyword arguments. Calculate the sum of all the values of the parameters, but only if the parameter name starts with the letter "a". You'll need to use argument dictionary packing unpacking: https://realpython.com/defining-your-own-python-function/#argument-dictionary-packing.
+
+# Loops
+This section is about loops.
+
+- Write a function iter_list that takes a list of items and iterates over a list of items and calls _register with each item.
+- Write a function even_iter_list that takes a list of items and iterates over the list calls _register on every evenly index item.
+- Write a function input_until that gets input from the user via input within a loop and calls _register, and exit only once the user types x or exit.
+- Write a function iter_dict_keys that takes a dictionary of items and iterates over those items, calling _register with only the keys.
+- Write a function iter_dict_values that takes a dictionary of items and iterates over those items, calling _register with only the values.
+- Write a function iter_empty_dict_keys that takes a dictionary of items and iterates over those items, calling _register with only the keys if the value is None.
+- Write a function iter_dict_except that takes a dictionary of items and one other variable of any type. Loop through calling _register with every key/value where neither the key nor the value match the extra variable.
+
