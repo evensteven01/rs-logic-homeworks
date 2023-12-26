@@ -1,16 +1,16 @@
 from src.Logic.utils import _register
 
-def iter_list(anyList: list[Any]):
+def iter_list(anyList: list[any]):
     
     for al in anyList:
         _register(al)
 
-def even_iter_list(anyList: list[Any]):
+def even_iter_list(anyList: list[any]):
     
     count = 0
 
     for item in anyList:
-        if item % 2 == 0:
+        if int(item) % 2 == 0:
             _register(item)
         count += 1
 
@@ -23,24 +23,27 @@ def input_until():
             _register(userInput)
             break
 
-def iter_dict_keys(dictKeys: dict[Any, Any]):
+def iter_dict_keys(dictKeys: dict[any, any]):
     
-    for k, val in dictKeys:
-        _register(k.keys())
+    getKeys = [ele for key in dictKeys for ele in key]
 
-def iter_dict_values(dictValues: dict[Any, Any]):
-    
-    for keys, val in dictValues:
-        _register(val.values())
+    _register(getKeys)
 
-def iter_empty_dict_keys(emptyDict: dict[Any, Any]):
+def iter_dict_values(dictValues: dict[any, any]):
     
-    for k, val in emptyDict:
-        if val.values() is None:
-           _register(k.keys())
+    for key, tupleValues in dictValues.items():
+        for value in tupleValues:
+            _register(value)
 
-def iter_dict_except(variableDict: dict[Any, Any], one: Any):
+def iter_empty_dict_keys(emptyDict: dict[any, any]):
     
-    for itemDict in variableDict:
+    for key, tupleValues in emptyDict.items():
+        for value in tupleValues:
+            if value is None:
+               _register(key)
+
+def iter_dict_except(variableDict: dict[any, any], one: any):
+    
+    for itemDict in variableDict.items():
         if itemDict.keys() != one and itemDict.values() != one:
             _register(itemDict.items())
