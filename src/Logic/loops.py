@@ -6,13 +6,10 @@ def iter_list(anyList: list[any]):
         _register(al)
 
 def even_iter_list(anyList: list[any]):
-    
-    count = 0
 
-    for item in anyList:
-        if int(item) % 2 == 0:
-            _register(item)
-        count += 1
+    for ele, val in enumerate(anyList):
+        if ele % 2 == 0:
+            _register(ele)
 
 def input_until():
 
