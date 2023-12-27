@@ -242,7 +242,7 @@ def test_has_duplicates_huge(has_duplicate: bool):
     ct = 50000
     huge_list = list({randint(0, 1000000) for i in range(ct)})
     if has_duplicate:
-        rand_index = randint(1,ct-2)
+        rand_index = randint(1,len(huge_list)-2)
         huge_list[rand_index-1] = huge_list[rand_index-2]
     
     # Act

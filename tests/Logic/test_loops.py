@@ -48,6 +48,26 @@ def test_even_iter_list(loi: list[Any], exp_calls: list[Any], mocker: MockerFixt
     register.assert_has_calls(exp_calls)
 
 @pytest.mark.parametrize(
+    "user_input, exp_calls",
+    [
+        (["hi", "bye", "x"], ["hi", "bye"]),
+        (["exit"], []),
+        (["Exit", "exit"], ["Exit"]),
+    ]
+)
+def test_input_until(user_input: list[Any], exp_calls: list[Any], mocker: MockerFixture):
+    # Arrange
+    register = mocker.patch("src.Logic.utils._cregister")
+    register = mocker.patch("src.Logic.loops.input", side_effect=user_input)
+    exp_calls = [call(item) for item in exp_calls]
+
+    # Act
+    input_until()
+
+    # Asset
+    register.assert_has_calls(exp_calls)
+
+@pytest.mark.parametrize(
     "dct,exp_calls",                                                              
     [
         ({"a": 1, "b": 2, "c": 3},["a","b","c"]),
