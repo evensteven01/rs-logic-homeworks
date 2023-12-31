@@ -1,7 +1,5 @@
 import copy
 
-from PyDictionary import PyDictionary
-
 def _register(*args, **kwargs):
     """ This is just for me to use in unit testing """
 
