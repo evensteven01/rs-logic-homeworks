@@ -10,10 +10,10 @@ from src.Review.review1 import *
     [
         (1.2, 5.4, 6.48),
         (2, 2.25, 4.40),
-        (10, 2.3, 20.5), # 2.05
+        (10, 2.3, 2.05), # 2.05
         (15.7, 7.34, 111.31), # 15.7 * (7.34-.25) = 
         (0, 5.4, 0),
-        (100, 0, 0),
+        (100, 0, 0),                                                                                                                                                         
         (100, 0, 0),
     ]
 )
@@ -96,7 +96,7 @@ def test_sticky_calculator(val1, val2, operator, exp_result):
         ([(7,13)], (7,10,13)),
     ]
 )
-def test_global_estimate(estimates,exp_result):
+def test_global_estimate(estimates, exp_result):
     # Arrange
     # Act
     act_result = global_estimate(*estimates)
@@ -111,7 +111,7 @@ def test_global_estimate(estimates,exp_result):
         ([1,4,-5,5], 14),
     ]
 )
-def test_add(args,exp_result):
+def test_add(args, exp_result):
     # Arrange
     # Act
     act_result = add(*args)
@@ -129,7 +129,7 @@ def test_add(args,exp_result):
         (10,20,-5, []),
     ]
 )
-def test_generate(start,end,step,exp_result):
+def test_generate(start, end, step, exp_result):
     # Arrange
     # Act
     act_result = generate(start,end,step)
@@ -144,7 +144,7 @@ def test_generate(start,end,step,exp_result):
         ([-3,-2,1,5],[-1,0,2,3,4]),
     ]
 )
-def test_find_missing(lon,exp_result):
+def test_find_missing(lon, exp_result):
     # Arrange
     # Act
     act_result = find_missing(lon)

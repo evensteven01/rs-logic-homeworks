@@ -1,9 +1,9 @@
 # HW 5
 This section will combine what we've learned to build on our logic ability, and to review what we've covered.
 
-- Write a function fuel_cost that takes litres and pricePerLitre (in dollar) as arguments to calculate the cost of purchasing fuel.
+- Write a function fuel_cost that takes liters and pricePerLitre (in dollar) as arguments to calculate the cost of purchasing fuel.
 
-Purchases of 2 or more litres get a discount of 5 cents per litre, purchases of 4 or more litres get a discount of 10 cents per litre, and so on every two litres, up to a maximum discount of 25 cents per litre. But total discount per litre cannot be more than 25 cents. Return the total cost rounded to 2 decimal places.
+Purchases of 2 or more liters get a discount of 5 cents per liter, purchases of 4 or more liters get a discount of 10 cents per liters, and so on every two liters, up to a maximum discount of 25 cents per liter. But total discount per liter cannot be more than 25 cents. Return the total cost rounded to 2 decimal places.
 
 - Complete the function ints_between that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
 
@@ -51,7 +51,7 @@ stickyCalc('/', 10, 10)     // Output: (1010 / 10) = 101
 
 - This challenge is about feature requests for a project. Feature requests have been piling up and you need a way to make global estimates of the time it would take to implement them all. If you estimate feature A to take 4 to 6 hours to implement, and feature B to take 2 to 5 hours, then in the best case it will only take you 6 (4 + 2) hours to implement both features, and in the worst case it will take you 11 (6 + 5). In the average case, it will take you 8.5 hours.
 
-To help you streamline the estimation process, write a function named total_times that returns a tuple of the global best case, average case and worst case given a tuple of tuples representing best case and worst case guesses.
+To help you streamline the estimation process, write a function named global_estimate that returns a tuple of the global best case, average case and worst case given a tuple of tuples representing best case and worst case guesses.
 
 For example,
 
