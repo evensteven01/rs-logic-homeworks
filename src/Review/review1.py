@@ -1,29 +1,35 @@
- import math
+import math
 
- from decimal import *
+from decimal import *
 
 def fuel_cost(liters: float, pricePerLiter: float):
 
-    distance = float(input("how much is the distance?:_"))
+    discount = int(liters / 2) * 0.05
 
-    for fl in liters:
-        for ppl in pricePerLiter:
-            totalCost = (distance / fl) * ppl
+    if discount > .25:
+        discount = .25
 
-    return totalCost
+    discountPerLiter = (pricePerLiter - discount)
+
+    if discountPerLiter < 0:
+        discountPerLiter = 0
+
+    totalCost = (liters * discountPerLiter)
+
+    return round(totalCost, 2)
 
 def ints_between(start: int, end: int):
 
     array = []
 
-    for st in range(start):
-        for ed in range(end):
-            if st <= len(st) and ed >= len(ed):
+    for st in start:
+        for ed in end:
+            if st <= ed:
                 combine_int = st + ed
                 array.extend(combine_int)
     return array
 
-def mpg21p100km(mpg: float):
+def mpg2lp100km(mpg: float):
     
     mile = 1.609344
 
@@ -34,7 +40,7 @@ def mpg21p100km(mpg: float):
     kms_per_gallon = (kms_per_mpg * gallon)
 
     miles_per_gallon = (kms_per_gallon / mile)
-
+                                                                                                                                                                                                       
     return miles_per_gallon
 
 def lp100km2mpg(lp100: float):
@@ -53,24 +59,18 @@ def lp100km2mpg(lp100: float):
 
 
 def sticky_calculator(operator: str, val1: int, val2: int):
-
-    val1 = int(input("Please enter your first number:_"))
-
-    val2 = int(input("Please enter your second number:_"))
-
-    operator = input("Please enter arithmetic operators such as (+, _ , *, /):_")
     
-    if operator == "+":
-        return result = (val1 * val2)
+    if operator == "*":
+        return (val1 * val2)
 
-    elif operator == "/"
-        return result = (val1 * val2)
+    elif operator == "/":
+        return (val1 * val2)
  
     elif operator == "+":
-        return result = (val1 + val2)
+        return (val1 + val2)  
 
     elif operator == "-":
-        return result = (val1 - val2)
+        return (val1 - val2)
 
 def global_estimate(estimates):
     pass

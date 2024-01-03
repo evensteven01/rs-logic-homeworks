@@ -15,12 +15,13 @@ def input_until():
 
     userInput = ""
 
-    while userInput != "quit":
+    while userInput != "x" or userInput != "exit":
         userInput = input("To break the loop, enter x or type exit:_")
 
         if userInput == "x" or userInput == "exit":
-            _register(userInput)
             break
+            
+        _register(userInput)
 
 def iter_dict_keys(dictKeys: dict[any, any]):
     
