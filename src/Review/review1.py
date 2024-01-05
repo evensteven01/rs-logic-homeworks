@@ -20,14 +20,12 @@ def fuel_cost(liters: float, pricePerLiter: float):
 
 def ints_between(start: int, end: int):
 
-    array = []
+    arrayInt = []
 
-    for st in start:
-        for ed in end:
-            if st <= ed:
-                combine_int = st + ed
-                array.extend(combine_int)
-    return array
+    for value in range(start, end + 1):
+        arrayInt.append(value)
+
+    return arrayInt
 
 def mpg2lp100km(mpg: float):
     
@@ -76,15 +74,27 @@ def global_estimate(estimates):
     pass
 
 def add(*args):
-    return sum(args)
+    pass
 
-def generate(start, end, step):
+def generate(start: int, end: int, step: int):
 
-    From = []
-    To = []
+    generateArray = []
 
-    for number in range(start, end, step):
-        pass
+    From, To, Step = start, end, step 
+
+    for value in range(From, To, Step):
+
+        generateArray.extend(value)
+
+        if Step[value] > To:
+            generateArray.pop(value)
+
+        if From[value] > To:
+            generateArray.reverse(value)
+
+        value += Step
+
+    return generateArray
 
 def find_missing():  
     pass

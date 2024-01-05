@@ -91,9 +91,9 @@ def test_sticky_calculator(val1, val2, operator, exp_result):
 @pytest.mark.parametrize(
     "estimates, exp_result",
     [
-        ([(1,2), (3,4)], (4,5,6)),
-        ([(2,5), (10,100), (4,7)], (16,64,112)),
-        ([(7,13)], (7,10,13)),
+        ([(1, 2), (3, 4)], (4, 5, 6)),
+        ([(2, 5), (10, 100), (4, 7)], (16, 64, 112)),
+        ([(7, 13)], (7, 10, 13)),
     ]
 )
 def test_global_estimate(estimates, exp_result):
@@ -107,8 +107,8 @@ def test_global_estimate(estimates, exp_result):
     "args, exp_result",
     [
         ([], 0),
-        ([3,4,5], 26),
-        ([1,4,-5,5], 14),
+        ([3, 4, 5], 26),
+        ([1, 4, -5, 5], 14),
     ]
 )
 def test_add(args, exp_result):
@@ -121,12 +121,12 @@ def test_add(args, exp_result):
 @pytest.mark.parametrize(
     "start, end, step, exp_result",
     [
-        (10,20,10, [10,20]),
-        (10,20,1, [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]),
-        (10,20,5, [10,15,20]),
-        (10,20,7, [10,17]),
-        (20,10,0, []),
-        (10,20,-5, []),
+        (10, 20, 10, [10, 20]),
+        (10, 20, 1, [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]),
+        (10, 20, 5, [10, 15, 20]),
+        (10, 20, 7, [10, 17]),
+        (20, 10, 0, []),
+        (10, 20, -5, []),
     ]
 )
 def test_generate(start, end, step, exp_result):
@@ -139,9 +139,9 @@ def test_generate(start, end, step, exp_result):
 @pytest.mark.parametrize(
     "lon, exp_result",
     [
-        ([1,2,4,5],[3]),
-        ([0,2,3,5,6,8],[1,4,7]),
-        ([-3,-2,1,5],[-1,0,2,3,4]),
+        ([1, 2, 4, 5],[3]),
+        ([0, 2, 3, 5, 6, 8],[1, 4, 7]),
+        ([-3, -2, 1, 5],[-1, 0, 2, 3, 4]),
     ]
 )
 def test_find_missing(lon, exp_result):
