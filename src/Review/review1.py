@@ -74,7 +74,16 @@ def global_estimate(estimates):
     pass
 
 def add(*args):
-    pass
+    
+    total = 0
+
+    i = 0
+
+    while i < len(args):
+        total += args[i]
+        i += 1
+
+    return total
 
 def generate(start: int, end: int, step: int):
 
@@ -86,15 +95,38 @@ def generate(start: int, end: int, step: int):
 
         generateArray.extend(value)
 
-        if Step[value] > To:
+        if Step > To:
             generateArray.pop(value)
 
-        if From[value] > To:
+        if From > To:
             generateArray.reverse(value)
 
         value += Step
 
     return generateArray
 
-def find_missing():  
-    pass
+def find_missing(numbers):
+
+    max = numbers[0]
+
+    for i in numbers:
+        if i > max:
+            max = i
+
+    min = numbers[0]
+
+    for j in numbers:
+        if j < min:
+            min = j
+
+    missing = max + 1
+
+    missingNumbers = []
+
+    for _ in numbers:
+        max = max - 1
+
+        if max not in numbers:
+            missingNumbers.append(max)
+
+    return missingNumbers
