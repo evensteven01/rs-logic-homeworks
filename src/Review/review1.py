@@ -71,7 +71,10 @@ def sticky_calculator(operator: str, val1: int, val2: int):
         return (val1 - val2)
 
 def global_estimate(estimates):
-    pass
+    
+    totalGlobalEstimation = ()
+
+    return totalGlobalEstimation
 
 def add(*args):
     
