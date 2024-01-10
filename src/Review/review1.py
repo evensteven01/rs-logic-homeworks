@@ -74,20 +74,56 @@ def global_estimate(estimates):
     
     totalGlobalEstimation = ()
 
+    if len(estimates) <= 1:
+        return
+
+    mid = len(estimates) // 2
+
+    leftCoordinate = estimates[:mid]
+    rightCoordinate = estimates[mid:]
+
+    global_estimate(leftCoordinate)
+    global_estimate(rightCoordinate)
+
+    leftIndex = 0
+    rightIndex = 0
+    estimateIndex = 0
+
+    while leftIndex < len(leftCoordinate) and rightIndex < len(rightCoordinate):
+        if leftCoordinate[leftIndex] < rightCoordinate[rightIndex]:
+            estimates[estimateIndex] = leftCoordinate[leftIndex]
+            leftIndex += 1
+        else:
+            estimates[estimateIndex] = rightCoordinate[rightIndex]
+            rightIndex += 1
+        estimateIndex += 1
+
+    if leftIndex < len(leftCoordinate):
+        del estimates[estimateIndex:]
+        estimates += leftCoordinate[leftIndex:]
+
+    elif rightIndex < len(rightCoordinate):
+        del estimates[estimateIndex:]
+        estimates += rightCoordinate[rightIndex:]
+
+    totalGlobalEstimation.append(estimates)
+
     return totalGlobalEstimation
 
 def add(*args):
     
-    total = 0
+    sumArray = None
 
-    i = 0
+    if sumArray is None and args is None:
+        return 0
 
-    while i < len(args):
-        total += args[i]
-        i += 1
+    sumArray = 0    
 
-    return total
-
+    for index, value in enumerate(args):
+        sumArray += value
+        
+    return sumArray
+ 
 def generate(start: int, end: int, step: int):
 
     generateArray = []
