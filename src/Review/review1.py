@@ -70,45 +70,25 @@ def sticky_calculator(operator: str, val1: int, val2: int):
     elif operator == "-":
         return (val1 - val2)
 
-def global_estimate(estimates):
+def global_estimate(estimates, value):
     
-    totalGlobalEstimation = ()
+    totalGlobalEstimation = len(estimates)
 
-    if len(estimates) <= 1:
-        return
+    leftCoordinate = 0
 
-    mid = len(estimates) // 2
+    rightCoordinate = totalGlobalEstimation - 1
 
-    leftCoordinate = estimates[:mid]
-    rightCoordinate = estimates[mid:]
+    while leftCoordinate <= rightCoordinate:
+        mid = (leftCoordinate + rightCoordinate) // 2
 
-    global_estimate(leftCoordinate)
-    global_estimate(rightCoordinate)
-
-    leftIndex = 0
-    rightIndex = 0
-    estimateIndex = 0
-
-    while leftIndex < len(leftCoordinate) and rightIndex < len(rightCoordinate):
-        if leftCoordinate[leftIndex] < rightCoordinate[rightIndex]:
-            estimates[estimateIndex] = leftCoordinate[leftIndex]
-            leftIndex += 1
+        if value < estimates[mid]:
+            rightCoordinate = mid - 1
+        elif value > estimates[mid]:
+            leftCoordinate = mid + 1
         else:
-            estimates[estimateIndex] = rightCoordinate[rightIndex]
-            rightIndex += 1
-        estimateIndex += 1
+            return mid
 
-    if leftIndex < len(leftCoordinate):
-        del estimates[estimateIndex:]
-        estimates += leftCoordinate[leftIndex:]
-
-    elif rightIndex < len(rightCoordinate):
-        del estimates[estimateIndex:]
-        estimates += rightCoordinate[rightIndex:]
-
-    totalGlobalEstimation.append(estimates)
-
-    return totalGlobalEstimation
+    raise ValueError('Value is not in the tuple')
 
 def add(*args):
     
