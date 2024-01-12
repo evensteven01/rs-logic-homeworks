@@ -99,7 +99,7 @@ def test_sticky_calculator(val1, val2, operator, exp_result):
 def test_global_estimate(estimates, exp_result):
     # Arrange
     # Act
-    act_result = global_estimate(*estimates)
+    act_result = global_estimate(estimates)
     # Assert
     assert exp_result == act_result
 
@@ -114,7 +114,7 @@ def test_global_estimate(estimates, exp_result):
 def test_add(args, exp_result):
     # Arrange
     # Act
-    act_result = add(*args)
+    act_result = add(args)
     # Assert
     assert exp_result == act_result
 

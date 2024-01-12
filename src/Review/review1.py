@@ -56,53 +56,53 @@ def lp100km2mpg(lp100: float):
     return liters_per_100kms
 
 
-def sticky_calculator(operator: str, val1: int, val2: int):
+def sticky_calculator(operator: str, val1, val2):
+
+    result = str(val1) + str(val2)
     
     if operator == "*":
-        return (val1 * val2)
+        return (int(result) * val2)
 
     elif operator == "/":
-        return (val1 * val2)
+        return (int(result) / val2)
  
     elif operator == "+":
-        return (val1 + val2)  
+        return (int(result) + val2)  
 
     elif operator == "-":
-        return (val1 - val2)
+        return (int(result) - val2)
 
-def global_estimate(estimates, value):
-    
-    totalGlobalEstimation = len(estimates)
+def global_estimate(estimates):
 
-    leftCoordinate = 0
+    globalBestCase = 0
+    globalAvgCase = 0
+    globalWorstCase = 0
 
-    rightCoordinate = totalGlobalEstimation - 1
+    for fEstimate in estimates:
 
-    while leftCoordinate <= rightCoordinate:
-        mid = (leftCoordinate + rightCoordinate) // 2
+        fBestCase = fEstimate[0]
+        fworstCase = fEstimate[1]
+        fAverageCase = (fBestCase + fworstCase) / 2
 
-        if value < estimates[mid]:
-            rightCoordinate = mid - 1
-        elif value > estimates[mid]:
-            leftCoordinate = mid + 1
-        else:
-            return mid
+        globalBestCase += fBestCase
+        globalWorstCase += fworstCase
+        globalAvgCase += fAverageCase
 
-    raise ValueError('Value is not in the tuple')
+    totalGlobalEstimation = (globalBestCase, globalAvgCase, globalWorstCase)
+        
+    return totalGlobalEstimation
 
-def add(*args):
-    
-    sumArray = None
+def add(args):
 
-    if sumArray is None and args is None:
+    if args is None:
         return 0
 
-    sumArray = 0    
+    totalSum = 0
 
-    for index, value in enumerate(args):
-        sumArray += value
-        
-    return sumArray
+    for num in args:
+        tot = (num * num) + num
+
+    return totalSum
  
 def generate(start: int, end: int, step: int):
 
