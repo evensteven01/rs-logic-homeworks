@@ -74,9 +74,7 @@ def sticky_calculator(operator: str, val1, val2):
 
 def global_estimate(estimates):
 
-    globalBestCase = 0
-    globalAvgCase = 0
-    globalWorstCase = 0
+    globalBestCase, globalAvgCase, globalWorstCase = 0, 0, 0
 
     for fEstimate in estimates:
 
@@ -94,13 +92,13 @@ def global_estimate(estimates):
 
 def add(args):
 
-    if args is None:
-        return 0
-
     totalSum = 0
 
     for num in args:
-        tot = (num * num) + num
+        if num not in args:
+            return 0
+
+        totalSum += int(num)
 
     return totalSum
  
@@ -112,13 +110,13 @@ def generate(start: int, end: int, step: int):
 
     for value in range(From, To, Step):
 
-        generateArray.extend(value)
-
         if Step > To:
             generateArray.pop(value)
 
         if From > To:
             generateArray.reverse(value)
+
+        generateArray.extend(value)
 
         value += Step
 
