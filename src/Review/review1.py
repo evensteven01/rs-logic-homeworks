@@ -106,19 +106,21 @@ def generate(start: int, end: int, step: int):
 
     generateArray = []
 
-    From, To, Step = start, end, step 
+    for index, num in range(start, end, step):
 
-    for value in range(From, To, Step):
+        From, To, Step = index[0], index[1], index[2]
 
-        if Step > To:
-            generateArray.pop(value)
+        while From < To:
 
-        if From > To:
-            generateArray.reverse(value)
+            generateArray.append(num)
+            
+            if Step > To:
+                generateArray.pop(num)
 
-        generateArray.extend(value)
+            if From > To:
+                generateArray.append(reverse(num))
 
-        value += Step
+            Step += 1
 
     return generateArray
 
