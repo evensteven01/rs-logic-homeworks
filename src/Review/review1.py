@@ -94,11 +94,15 @@ def add(args):
 
     totalSum = 0
 
-    for num in args:
-        if num not in args:
-            return 0
+    count = 1
 
-        totalSum += int(num)
+    for index, num in enumerate(args):
+
+        calcSum = (num * count)
+
+        count += 1
+
+        totalSum += int(calcSum)
 
     return totalSum
  
@@ -106,46 +110,23 @@ def generate(start: int, end: int, step: int):
 
     generateArray = []
 
-    for index, num in range(start, end, step):
+    for num in range(start, end + 1, step):
+        generateArray.append(num)
 
-        From, To, Step = index[0], index[1], index[2]
+    if start > end:
+        generateArray.reverse()
 
-        while From < To:
-
-            generateArray.append(num)
-            
-            if Step > To:
-                generateArray.pop(num)
-
-            if From > To:
-                generateArray.append(reverse(num))
-
-            Step += 1
-
-    return generateArray
+    return generateArray 
 
 def find_missing(numbers):
 
-    max = numbers[0]
+    # numbers = [-1,1,2,3,7,8,10] -> [0,4,5,6,9] 
 
-    for i in numbers:
-        if i > max:
-            max = i
+    # use list comprehension to loop over paramters
+    # use zip method to pairs the corresponging elements or items from the list
+    # use slicing[] as starting from element at certain index
+    # then use for loop in a range where the first variable get added by 1 and then second variable
+    # theh check if the second variable is substracted by first variable and then greater than 1
 
-    min = numbers[0]
-
-    for j in numbers:
-        if j < min:
-            min = j
-
-    missing = max + 1
-
-    missingNumbers = []
-
-    for _ in numbers:
-        max = max - 1
-
-        if max not in numbers:
-            missingNumbers.append(max)
-
-    return missingNumbers
+    return [missingArr for row, col in zip(numbers, numbers[1:])
+        for missingArr in range(row + 1, col) if col - row > 1]

@@ -126,7 +126,7 @@ def test_add(args, exp_result):
         (10, 20, 5, [10, 15, 20]),
         (10, 20, 7, [10, 17]),
         (20, 10, 3, []),
-        (10, 20, 5, []),
+        (10, 20, 5, [10, 15, 20]),
     ]
 )
 def test_generate(start, end, step, exp_result):
