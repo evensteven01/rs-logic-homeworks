@@ -130,3 +130,11 @@ def find_missing(numbers):
 
     return [missingArr for row, col in zip(numbers, numbers[1:])
         for missingArr in range(row + 1, col) if col - row > 1]
+
+
+def correct_tail(body, tail):
+     sub = body.substr(len(body)-len(tail.length))
+    if sub = tai:
+        return True
+    else:
+        return False

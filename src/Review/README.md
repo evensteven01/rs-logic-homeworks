@@ -1,9 +1,9 @@
 # HW 5
 This section will combine what we've learned to build on our logic ability, and to review what we've covered.
 
-- Write a function fuel_cost that takes liters and pricePerLitre (in dollar) as arguments to calculate the cost of purchasing fuel.
+- Write a function fuel_cost that takes litres and pricePerLitre (in dollar) as arguments to calculate the cost of purchasing fuel.
 
-Purchases of 2 or more liters get a discount of 5 cents per liter, purchases of 4 or more liters get a discount of 10 cents per liters, and so on every two liters, up to a maximum discount of 25 cents per liter. But total discount per liter cannot be more than 25 cents. Return the total cost rounded to 2 decimal places.
+Purchases of 2 or more litres get a discount of 5 cents per litre, purchases of 4 or more litres get a discount of 10 cents per litre, and so on every two litres, up to a maximum discount of 25 cents per litre. But total discount per litre cannot be more than 25 cents. Return the total cost rounded to 2 decimal places.
 
 - Complete the function ints_between that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
 
@@ -51,16 +51,12 @@ stickyCalc('/', 10, 10)     // Output: (1010 / 10) = 101
 
 - This challenge is about feature requests for a project. Feature requests have been piling up and you need a way to make global estimates of the time it would take to implement them all. If you estimate feature A to take 4 to 6 hours to implement, and feature B to take 2 to 5 hours, then in the best case it will only take you 6 (4 + 2) hours to implement both features, and in the worst case it will take you 11 (6 + 5). In the average case, it will take you 8.5 hours.
 
-To help you streamline the estimation process, write a function named global_estimate that returns a tuple of the global best case, average case and worst case given a tuple of tuples representing best case and worst case guesses.
+To help you streamline the estimation process, write a function named global_estimate that returns a tuple of the global best case, average case and worst case given a tuple of tuples representing best case and worst case guesses. The function can take any number of estimates in the form of a tuple.
 
 For example,
 
 estimates = ((1, 2), (3, 4))
 global_estimate(estimates) == (4, 5, 6)
-For example,
-
-estimates = [[1, 2], [3, 4]]
-globalEstimate(estimates) == [4, 5, 6]
 Don't worry about rounding or invalid input.
 
 - You will create a function named add. This function will return the sum of all the arguments. Sounds easy, doesn't it??
@@ -105,3 +101,60 @@ Some numbers will be missing, for instance:
 Your task is to return an array of those missing numbers:
 
 [-1,0,2,3,4]
+
+# HW 6
+## Correct Tail
+Some new animals have arrived at the zoo. The zoo keeper is concerned that perhaps the animals do not have the right tails. To help her, you must correct the broken function to make sure that the second argument (tail), is the same as the last letter of the first argument (body) - otherwise the tail wouldn't fit!
+
+If the tail is right return true, else return false.
+
+The arguments will always be non empty strings, and normal letters.
+
+Correct the function correct_tail
+
+## String Repeat
+Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
+
+## Sum without highest and lowest
+Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
+
+The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
+
+Mind the input validation.
+
+## Rock Paper Scissors
+Let's play! You have to return which player won! In case of a draw return Draw!.
+
+Examples(Input1, Input2 --> Output):
+
+"scissors", "paper" --> "Player 1 won!"
+"scissors", "rock" --> "Player 2 won!"
+"paper", "paper" --> "Draw!"
+
+## Tip Calculator
+Complete the function, which calculates how much you need to tip based on the total amount of the bill and the service.
+
+You need to consider the following ratings:
+
+Terrible: tip 0%
+Poor: tip 5%
+Good: tip 10%
+Great: tip 15%
+Excellent: tip 20%
+The rating is case insensitive (so "great" = "GREAT"). If an unrecognized rating is received, then you need to return:
+"Rating not recognized"
+
+Because you're a nice person, you always round up the tip, regardless of the service.
+
+## Remove the time
+You're re-designing a blog, and the blog's posts have the Weekday Month Day, time format for showing the date and time when a post was made, e.g., Friday May 2, 7pm.
+
+You're running out of screen real estate, and on some pages you want to display a shorter format, Weekday Month Day that omits the time.
+
+Write a function that takes the website date/time in its original string format and returns the shortened format.
+
+Input
+Input will always be a string, e.g., "Friday May 2, 7pm". 
+
+Output
+Output will be the shortened string, e.g., "Friday May 2".

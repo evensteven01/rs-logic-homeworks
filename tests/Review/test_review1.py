@@ -150,3 +150,40 @@ def test_find_missing(lon, exp_result):
     act_result = find_missing(lon)
     # Assert
     assert exp_result == act_result
+
+
+
+def test_correct_tail():
+    assert correct_tail("Fox", "x") ==  True
+    assert correct_tail("Rhino", "o") == True
+    assert correct_tail("Meerkat", "t") == True
+    assert correct_tail("Emu", "t") == False
+
+def test_string_repeat():
+    assert string_repeat(3, "Fox") ==  "FoxFoxFox"
+    assert string_repeat(4, "a") ==  "aaaa" 
+
+def test_sum_no_highest_lowest():
+    assert sum_no_highest_lowest([1,2,3,4,5]) == 9
+    assert sum_no_highest_lowest([10, 34, 75, 100, 24, 734]) == 223
+    assert sum_no_highest_lowest([]) == 0
+    assert sum_no_highest_lowest([-2, -5, 5, 7]) == 3
+
+def test_paper_rock_scissors():
+    assert paper_rock_scissors("scissors", "paper") == "Player 1 won!"
+    assert paper_rock_scissors("scissors", "rock") == "Player 2 won!"
+    assert paper_rock_scissors("paper", "paper") == "Draw!"
+    
+def test_calculate_tip():
+    assert calculate_tip(30, "poor") ==  2
+    assert calculate_tip(20, "Excellent") ==  4
+    assert calculate_tip(20, "hi") ==  "Rating not recognized"
+    assert calculate_tip(107.65, "GReat") ==  17
+    assert calculate_tip(20, "great!") ==  "Rating not recognized"
+
+def test_shorten_to_date():
+    assert shorten_to_date("Monday February 2, 8pm") == "Monday February 2"
+    assert shorten_to_date("Tuesday May 29, 8pm") == "Tuesday May 29"
+    assert_shorten_to_date("Wed September 1, 3am") == "Wed September 1"
+    assert_shorten_to_date("Friday May 2, 9am") == "Friday May 2"
+    assert_shorten_to_date("Tuesday January 29, 10pm") == "Tuesday January 29"
