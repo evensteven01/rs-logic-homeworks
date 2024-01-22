@@ -1,6 +1,10 @@
 import math
+import random
+import calendar
 
 from decimal import *
+from datetime import date, datetime, time
+
 
 def fuel_cost(liters: float, pricePerLiter: float):
 
@@ -126,15 +130,103 @@ def find_missing(numbers):
     # use zip method to pairs the corresponging elements or items from the list
     # use slicing[] as starting from element at certain index
     # then use for loop in a range where the first variable get added by 1 and then second variable
-    # theh check if the second variable is substracted by first variable and then greater than 1
+    # then check if the second variable is substracted by first variable and then greater than 1
 
     return [missingArr for row, col in zip(numbers, numbers[1:])
         for missingArr in range(row + 1, col) if col - row > 1]
 
 
-def correct_tail(body, tail):
-     sub = body.substr(len(body)-len(tail.length))
-    if sub = tai:
+def correct_tail(body: str, tail: str):
+
+    sub = body.substr(len(body)-len(tail.length))
+
+    if sub == tai:
         return True
     else:
         return False
+
+def string_repeat(n: int, s: str):
+    
+    repeatStr = ""
+
+    for _ in range(n):
+        repeatStr += s
+
+    return repeatStr
+
+def sum_no_highest_lowest():
+    pass
+
+def paper_rock_scissors(input1: str, input2: str):
+
+    PLAYER1 = "Player 1 win!"
+    COMPUTER = "Computer win!"
+    DRAW = "Draw!"
+    
+    options = [input1, input2]
+
+    userChoice = input("Choose rock, paper, or scissors:_")
+
+    computerChoice = random.choice(options)
+
+    if userChoice == input1 and computerChoice == input2:
+        return PLAYER1
+
+    elif userChoice == input1 and computerChoice == input2:
+        return COMPUTER
+
+    elif userChoice == computerChoice:
+        return DRAW
+
+def calculate_tip():
+    
+    # ratings
+    EXCELLENT = "Excellent"
+    GREAT = "great"
+    GOOD = "Good"
+    POOR = "Poor"
+    Terrible = "Terrible"
+    NR = "Rating not recognized"
+
+    print("Welcome to the tip calculator!")
+
+    # How much the bill is
+    bill = float(input("What was the total bill?$"))
+
+    # how much the tip was
+    tip = int(input("How much tip would you like to give? 20, 15, 10, 5?:_"))
+
+    # how many people to split the bill
+    num_of_split = int(input("How many people to split the bill? "))
+
+    # to calculate the bill
+    # will use PANDAS
+    calculate_bill = bill * (1 + (tip / 100)) / num_of_split
+
+    # how much the final amount
+    final_amount = "{:.2f}".format(calculate_tip, 2)
+
+    if tip == 20:
+        print(f"each person should pay:${final_amount}")
+        return EXCELLENT
+
+    elif tip == 15:
+        print(f"each person should pay:${final_amount}")
+        return GREAT
+
+    elif tip == 10:
+        print(f"each person should pay:${final_amount}")
+        return GOOD
+
+    elif tip == 5:
+        print(f"each person should pay:${ final_amount}")
+        return POOR
+
+    elif tip == 0:
+        print(f"each person should pay:${final_amount}")
+        return Terrible
+    else:
+        return NR
+
+def shorten_to_date(day: str, month: str, time: str):
+    pass
