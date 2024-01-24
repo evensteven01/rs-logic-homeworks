@@ -167,7 +167,7 @@ def test_string_repeat():
 def test_sum_no_highest_lowest():
     # Assert
     assert sum_no_highest_lowest([1,2,3,4,5]) == 9
-    assert sum_no_highest_lowest([10, 34, 75, 100, 24, 734]) == 223
+    assert sum_no_highest_lowest([10, 34, 75, 100, 24, 734]) == 233
     assert sum_no_highest_lowest([]) == 0
     assert sum_no_highest_lowest([-2, -5, 5, 7]) == 3
 

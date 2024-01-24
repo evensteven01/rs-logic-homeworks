@@ -1,10 +1,6 @@
 import math
-import random
-import calendar
 
 from decimal import *
-from datetime import date, datetime, time
-
 
 def fuel_cost(liters: float, pricePerLiter: float):
 
@@ -176,78 +172,74 @@ def sum_no_highest_lowest(arr):
     # if only one element exist
     # Then it should returns 0
 
-    return 0 if arr == None or len(arr) < 3 else sum(arr) - (max(arr) + min(arr))
+    if arr is None or len(arr) <= 1:
+        return 0
+    else:
+        return sum(sorted(arr)[1:-1])
 
 def paper_rock_scissors(input1: str, input2: str):
 
-    PLAYER1 = "Player 1 win!"
-    COMPUTER = "Computer win!"
+    PLAYER1 = "Player 1 won!"
+    PLAYER2 = "Player 2 won!"
     DRAW = "Draw!"
-    
-    options = [input1, input2]
 
-    userChoice = input("Choose rock, paper, or scissors:_")
-
-    computerChoice = random.choice(options)
-
-    if userChoice == input1 and computerChoice == input2:
+    if input1 == "rock" and input2 == "scissors":
         return PLAYER1
-
-    elif userChoice == input1 and computerChoice == input2:
-        return COMPUTER
-
-    elif userChoice == computerChoice:
+    elif input1 == "rock" and input2 == "paper":
+        return PLAYER2
+    elif input1 == "rock" and input2 == "rock":
+        return DRAW
+    elif input1 == "paper" and input2 == "scissors":
+        return PLAYER2
+    elif input1 == "paper" and input2 == "rock":
+        return PLAYER1
+    elif input1 == "paper" and input2 == "paper":
+        return DRAW
+    elif input1 == "scissors" and input2 == "rock":
+        return PLAYER2
+    elif input1 == "scissors" and input2 == "paper":
+        return PLAYER1
+    elif input1 == "scissors" and input2 == "scissors":
         return DRAW
 
-def calculate_tip():
-    
-    # ratings
-    EXCELLENT = "Excellent"
-    GREAT = "great"
-    GOOD = "Good"
-    POOR = "Poor"
-    Terrible = "Terrible"
-    NR = "Rating not recognized"
+def calculate_tip(cost: float, rating: str):
 
     print("Welcome to the tip calculator!")
 
     # How much the bill is
-    bill = float(input("What was the total bill?$"))
+    bill = cost
 
     # how much the tip was
-    tip = int(input("How much tip would you like to give? 20, 15, 10, 5?:_"))
-
-    # how many people to split the bill
-    num_of_split = int(input("How many people to split the bill? "))
+    tip = [i for i in range(20)]
 
     # to calculate the bill
     # will use PANDAS
-    calculate_bill = bill * (1 + (tip / 100)) / num_of_split
+    calculate_bill = bill * (1 + (tip / 100))
 
     # how much the final amount
     final_amount = "{:.2f}".format(calculate_tip, 2)
 
     if tip == 20:
         print(f"each person should pay:${final_amount}")
-        return EXCELLENT
+        return rating
 
     elif tip == 15:
         print(f"each person should pay:${final_amount}")
-        return GREAT
+        return rating
 
     elif tip == 10:
         print(f"each person should pay:${final_amount}")
-        return GOOD
+        return rating
 
     elif tip == 5:
         print(f"each person should pay:${ final_amount}")
-        return POOR
+        return rating
 
     elif tip == 0:
         print(f"each person should pay:${final_amount}")
-        return Terrible
-    else:
-        return NR
+        return rating
+    else: 
+        return rating
 
 def shorten_to_date(longDate: str):
     
