@@ -138,9 +138,23 @@ def find_missing(numbers):
 
 def correct_tail(body: str, tail: str):
 
-    sub = body.substr(len(body)-len(tail.length))
+    # create stored variable called sub
+    # firstly, let's do length of body by using len function
+    # subtracted by 1
+    # the colon operator does slice a part of from a sequence object
+    # such as list, tuple or string
+    # also the colon indicates that start of new block of code 
+    # and signals the python that following indented lines should be executed as part that block
+    # then just have the length of body
+    # all of these are in subscript
+    # the check if stored variable 'sub' is equal to tail
+    # if it does equal or at least match the corrected tail
+    # it should return true
+    # otherwise it returns false
 
-    if sub == tai:
+    sub = body[len(body) - 1 : len(body)]
+
+    if sub == tail:
         return True
     else:
         return False
@@ -154,8 +168,15 @@ def string_repeat(n: int, s: str):
 
     return repeatStr
 
-def sum_no_highest_lowest():
-    pass
+def sum_no_highest_lowest(arr):
+    
+    # objectively is to calculate the sum of list of integers
+    # by having a minus the minimum and maximum
+    # Then check if the array is either empty, none, or 
+    # if only one element exist
+    # Then it should returns 0
+
+    return 0 if arr == None or len(arr) < 3 else sum(arr) - (max(arr) + min(arr))
 
 def paper_rock_scissors(input1: str, input2: str):
 
@@ -228,5 +249,10 @@ def calculate_tip():
     else:
         return NR
 
-def shorten_to_date(day: str, month: str, time: str):
-    pass
+def shorten_to_date(longDate: str):
+    
+    # lets use split on comma
+    # let use subscript at index 0
+    # so the outcome should be shortned string
+
+    return longDate.split(',')[0]

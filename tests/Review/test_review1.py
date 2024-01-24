@@ -52,7 +52,7 @@ def test_ints_between(start: int, end: int, exp_result):
 )
 def test_mpg2lp100km(mpg: float, exp_result: float):
     # Arrange
-    # Act
+    # Act 
     act_result = mpg2lp100km(mpg)
     # Assert
     assert pytest.approx(act_result, .01) == exp_result
