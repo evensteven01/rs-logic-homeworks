@@ -204,39 +204,39 @@ def paper_rock_scissors(input1: str, input2: str):
 
 def calculate_tip(cost: float, rating: str):
 
-    print("Welcome to the tip calculator!")
+    print("\t\tWelcome to the tip calculator!")
 
     # How much the bill is
     bill = cost
 
     # how much the tip was
-    tip = [i for i in range(20)]
+    tips = [0, 5, 10, 15, 20]
+
+    for tp in tips:
+        print(f"If you would like to leave a {tp}%, the amount will be ${bill * tp / 100}.")
 
     # to calculate the bill
     # will use PANDAS
-    calculate_bill = bill * (1 + (tip / 100))
+    final_amount = bill * (1 + (tp / 100))
 
-    # how much the final amount
-    final_amount = "{:.2f}".format(calculate_tip, 2)
-
-    if tip == 20:
-        print(f"each person should pay:${final_amount}")
+    if tp == 20:
+        print(f"each person should pay:${final_amount:.2f}")
         return rating
 
-    elif tip == 15:
-        print(f"each person should pay:${final_amount}")
+    elif tp == 15:
+        print(f"each person should pay:${final_amount:.2f}")
         return rating
 
-    elif tip == 10:
-        print(f"each person should pay:${final_amount}")
+    elif tp == 10:
+        print(f"each person should pay:${final_amount:.2f}")
         return rating
 
-    elif tip == 5:
-        print(f"each person should pay:${ final_amount}")
+    elif tp == 5:
+        print(f"each person should pay:${final_amount:.2f}")
         return rating
 
-    elif tip == 0:
-        print(f"each person should pay:${final_amount}")
+    elif tp == 0:
+        print(f"each person should pay:${final_amount:.2f}")
         return rating
     else: 
         return rating
