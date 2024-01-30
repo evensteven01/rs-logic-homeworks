@@ -192,3 +192,43 @@ def test_shorten_to_date():
     assert shorten_to_date("Wed September 1, 3am") == "Wed September 1"
     assert shorten_to_date("Friday May 2, 9am") == "Friday May 2"
     assert shorten_to_date("Tuesday January 29, 10pm") == "Tuesday January 29"
+
+def test_double_array():
+    assert double_array([]) == []
+    assert double_array([0, 1, 2]) == [0, 2, 4]
+    assert double_array([-4, 1, 8, 1000, 34, 73, -1231, 54, 6, 6, 1]) == [-8, 2, 16, 2000, 64, 146, -2462, 108, 12, 12, 2]
+
+def test_sum_2d_list():
+    assert sum_2d_list([[1,2,3], [5,6]]) == 17
+    assert sum_2d_list([]) == 0
+    assert sum_2d_list([[]]) == 0
+    assert sum_2d_list([[], [1]]) == 1
+    assert sum_2d_list([[1,2,3], [5,6], [100, -200]]) == -83
+
+
+def test_sum_2d_list():
+    assert sums_of_lists([[1,2,3], [5,6]]) == [6,11]
+    assert sum_2d_list([]) == []
+    assert sum_2d_list([[]]) == [0]
+    assert sum_2d_list([[], [1]]) == [0,1]
+    assert sum_2d_list([[1,2,3], [5,6], [100, -200]]) == [6, 11, -100]
+
+def test_powers_of_2():
+    assert powers_of_2(0) == [1]
+    assert powers_of_2(1) == [1, 2]
+    assert powers_of_2(2) == [1, 2, 4]
+    assert powers_of_2(5) == [1, 2, 4, 8, 16, 32]
+
+def test_count_pos_sum_neg():
+    assert count_positive_sum_negative([]) == [0, 0]
+    assert count_positive_sum_negative([0,0]) == [0, 0]
+    assert count_positive_sum_negative([-3, -2, 4, 6, 0, -5, 12]) == [3, -10]
+    assert count_positive_sum_negative([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]) == [10, -65]
+
+def test_is_all_caps():
+    assert is_all_caps("c") == False
+    assert is_all_caps("C") == True
+    assert is_all_caps("hello I AM DONALD") == False
+    assert is_all_caps("HELLO I AM DONALD") == True
+    assert is_all_caps("ACSKLDFJSgSKLDFJSKLDFJ") == False
+    assert is_all_caps("ACSKLDFJSGSKLDFJSKLDFJ") == True
