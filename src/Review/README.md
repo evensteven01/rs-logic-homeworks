@@ -165,3 +165,49 @@ Given an array of integers, return a new array with each value doubled.
 For example:
 
 [1, 2, 3] --> [2, 4, 6]
+
+## Sum the 2d list
+Given an list where each item in the list is a list of integers, return the total sum of all the numbers.
+
+For example:
+
+[[1,2,3], [5,6]] -> 17
+
+## Return list of sums
+Given a list where each item in the list is a list of integers, return a list of sums of each of those list of integers.
+
+For example:
+
+[[1,2,3], [5,6]] -> [6, 11]
+
+## Powers of 2
+Complete the function that takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n ( inclusive ).
+
+Examples
+n = 0  ==> [1]        # [2^0]
+n = 1  ==> [1, 2]     # [2^0, 2^1]
+n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]
+
+## Count of positives / sum of negatives
+Given an array of integers.
+
+Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+
+If the input is an empty array or is null, return an empty array.
+
+Example
+For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+
+## All caps?
+Is the string uppercase?
+Create a method to see whether the string is ALL CAPS.
+
+Examples (input -> output)
+"c" -> False
+"C" -> True
+"hello I AM DONALD" -> False
+"HELLO I AM DONALD" -> True
+"ACSKLDFJSgSKLDFJSKLDFJ" -> False
+"ACSKLDFJSGSKLDFJSKLDFJ" -> True
+
+For this challenge, a string is said to be in ALL CAPS whenever it does not contain any lowercase letter so any string containing no letters at all is trivially considered to be in ALL CAPS.
