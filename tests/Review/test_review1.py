@@ -206,12 +206,12 @@ def test_sum_2d_list():
     assert sum_2d_list([[1,2,3], [5,6], [100, -200]]) == -83
 
 
-def test_sum_2d_list():
+def test_sums_of_lists():
     assert sums_of_lists([[1,2,3], [5,6]]) == [6,11]
-    assert sum_2d_list([]) == []
-    assert sum_2d_list([[]]) == [0]
-    assert sum_2d_list([[], [1]]) == [0,1]
-    assert sum_2d_list([[1,2,3], [5,6], [100, -200]]) == [6, 11, -100]
+    assert sums_of_lists([]) == []
+    assert ssums_of_lists([[]]) == [0]
+    assert ssums_of_lists([[], [1]]) == [0,1]
+    assert sums_of_lists([[1,2,3], [5,6], [100, -200]]) == [6, 11, -100]
 
 def test_powers_of_2():
     assert powers_of_2(0) == [1]
@@ -220,10 +220,10 @@ def test_powers_of_2():
     assert powers_of_2(5) == [1, 2, 4, 8, 16, 32]
 
 def test_count_pos_sum_neg():
-    assert count_positive_sum_negative([]) == [0, 0]
-    assert count_positive_sum_negative([0,0]) == [0, 0]
-    assert count_positive_sum_negative([-3, -2, 4, 6, 0, -5, 12]) == [3, -10]
-    assert count_positive_sum_negative([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]) == [10, -65]
+    assert count_pos_sum_neg([]) == [0, 0]
+    assert count_pos_sum_neg([0,0]) == [0, 0]
+    assert count_pos_sum_neg([-3, -2, 4, 6, 0, -5, 12]) == [3, -10]
+    assert count_pos_sum_neg([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]) == [10, -65]
 
 def test_is_all_caps():
     assert is_all_caps("c") == False

@@ -2,6 +2,8 @@ import math
 
 from decimal import *
 
+import re
+
 def fuel_cost(liters: float, pricePerLiter: float):
 
     discount = int(liters / 2) * 0.05
@@ -131,7 +133,6 @@ def find_missing(numbers):
     return [missingArr for row, col in zip(numbers, numbers[1:])
         for missingArr in range(row + 1, col) if col - row > 1]
 
-
 def correct_tail(body: str, tail: str):
 
     # create stored variable called sub
@@ -203,43 +204,31 @@ def paper_rock_scissors(input1: str, input2: str):
         return DRAW
 
 def calculate_tip(cost: float, rating: str):
-
-    print("\t\tWelcome to the tip calculator!")
+    # Return the tip amount that the customer will leave
+    # tip = tip_percentage * cost
+    # tip = .18 * 20 = 3.60
 
     # How much the bill is
     bill = cost
 
     # how much the tip was
-    tips = [0, 5, 10, 15, 20]
-
-    for tp in tips:
-        print(f"If you would like to leave a {tp}%, the amount will be ${bill * tp / 100}.")
-
-    # to calculate the bill
-    # will use PANDAS
-    final_amount = bill * (1 + (tp / 100))
-
-    if tp == 20:
-        print(f"each person should pay:${final_amount:.2f}")
-        return rating
-
-    elif tp == 15:
-        print(f"each person should pay:${final_amount:.2f}")
-        return rating
-
-    elif tp == 10:
-        print(f"each person should pay:${final_amount:.2f}")
-        return rating
-
-    elif tp == 5:
-        print(f"each person should pay:${final_amount:.2f}")
-        return rating
-
-    elif tp == 0:
-        print(f"each person should pay:${final_amount:.2f}")
-        return rating
-    else: 
-        return rating
+    if rating.lower() == "terrible":
+        tip = math.ceil(0 * bill)
+        return tip
+    elif rating.lower() == "poor":
+        tip = math.ceil(.05 * bill)
+        return tip
+    elif rating.lower() == "good":
+        tip = math.ceil(.1 * bill)
+        return tip
+    elif rating.lower() == "great":
+        tip = math.ceil(.15 * bill)
+        return tip
+    elif rating.lower() == "excellent":
+        tip = math.ceil(.2 * bill)
+        return tip
+    else:
+        return "Rating not recognized"
 
 def shorten_to_date(longDate: str):
     
@@ -248,3 +237,78 @@ def shorten_to_date(longDate: str):
     # so the outcome should be shortned string
 
     return longDate.split(',')[0]
+
+def double_array(arr: int):
+    
+    for num in range(len(arr)):
+        if arr[num] is None:
+            return None
+
+        arr[num] = arr[num] + arr[num]
+
+def sum_2d_list(arr: int):
+
+    # create stored variable and set to 0
+    # use for loop to iterate over the parameter
+    # then increment stored variable by iterate in the sum function
+    # finally returns the outcome or result
+    
+    totalSum = 0
+
+    for row in arr:
+        totalSum += sum(row)
+
+    return totalSum
+
+def sums_of_lists(numbers):
+    
+    total = 0
+
+    for row in numbers:
+        for col in row:
+            total += col
+
+    return total
+
+def powers_of_2(n: int):
+
+    # create stored variable and set as empty array
+    # use for loop to iterate over parameter in range function and added by 1
+    # in body statement, append the iexpression: terator to the power of 2 into the array
+    # finally returns the array
+    
+    out = []
+
+    for num in range(n+1):
+        out.append(2**num)
+
+    return out
+
+def count_pos_sum_neg(arr: int):
+
+    # lets use list comprehension to iterate over parameter
+    # then check if list comprehension's iterator is greater than 0
+    # then put the first list comprehension code block in length function
+    # then lets use another list comprehension to iterate over teh same parameter
+    # but this time check it if list comprehension's iterator is less than 0
+    # then this put second list comprehension code block into sum function
+    # then put this whole code block into brackets
+    # finally, outside of the bracket, check if length of array is not equal to 0
+    # otherwise, its empty array
+
+    return [len([i for i in arr if i > 0]), sum([i for i in arr if i < 0])] if len(arr) != 0 else []
+
+def is_all_caps(randomCharacters: str):
+
+    # import re- regular expression
+    # then use if-else-if statements
+    # use of uppercase to compare the parameter
+    # then use match function which takes two arguments and check if its not equal to null
+    # finally returns boolans
+
+    if randomCharacters.upper() == randomCharacters:
+        return True
+    elif re.match('a-z', randomCharacters) != None:
+        return False
+    else:
+        return False
