@@ -238,19 +238,22 @@ def shorten_to_date(longDate: str):
 
     return longDate.split(',')[0]
 
-def double_array(arr: int):
+def double_array(arr):
     
-    for num in range(len(arr)):
-        if arr[num] is None:
-            return None
+    # lets use list comprehension
+    # have list comprehension to iterate over paramter
+    # then have iterator times 2 
+    # then have whole code block into bracket 
+    # finally returns whole thing in one line
 
-        arr[num] = arr[num] + arr[num]
+    return [num * 2 for num in arr]
 
 def sum_2d_list(arr: int):
 
     # create stored variable and set to 0
     # use for loop to iterate over the parameter
-    # then increment stored variable by iterate in the sum function
+    # then increment the stored variable by having iterator in the sum function
+    # note- the sum function its purpose is to add all the elements in an iterable like (list or tuples) and it returns the total
     # finally returns the outcome or result
     
     totalSum = 0
@@ -261,20 +264,14 @@ def sum_2d_list(arr: int):
     return totalSum
 
 def sums_of_lists(numbers):
-    
-    total = 0
 
-    for row in numbers:
-        for col in row:
-            total += col
-
-    return total
+    return sum([sum(num) for num in numbers])
 
 def powers_of_2(n: int):
 
     # create stored variable and set as empty array
     # use for loop to iterate over parameter in range function and added by 1
-    # in body statement, append the iexpression: terator to the power of 2 into the array
+    # in body statement, append the expression: iterator to the power of 2 into the array
     # finally returns the array
     
     out = []
@@ -289,10 +286,10 @@ def count_pos_sum_neg(arr: int):
     # lets use list comprehension to iterate over parameter
     # then check if list comprehension's iterator is greater than 0
     # then put the first list comprehension code block in length function
-    # then lets use another list comprehension to iterate over teh same parameter
-    # but this time check it if list comprehension's iterator is less than 0
-    # then this put second list comprehension code block into sum function
-    # then put this whole code block into brackets
+    # then lets use another list comprehension to iterate over the same parameter
+    # but this time check if list comprehension's iterator is less than 0
+    # then put second list comprehension code block into sum function
+    # then put this whole code block with two list comprehensions into brackets
     # finally, outside of the bracket, check if length of array is not equal to 0
     # otherwise, its empty array
 
@@ -302,13 +299,15 @@ def is_all_caps(randomCharacters: str):
 
     # import re- regular expression
     # then use if-else-if statements
-    # use of uppercase to compare the parameter
-    # then use match function which takes two arguments and check if its not equal to null
+    # use of uppercase function to compare the parameter
+    # then use match function which takes two arguments and then check if its not equal to null
     # finally returns boolans
 
     if randomCharacters.upper() == randomCharacters:
         return True
+
     elif re.match('a-z', randomCharacters) != None:
         return False
+
     else:
         return False
