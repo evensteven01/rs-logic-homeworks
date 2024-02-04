@@ -263,9 +263,17 @@ def sum_2d_list(arr: int):
 
     return totalSum
 
-def sums_of_lists(numbers):
+def sums_of_lists(numbers: list[int]):
 
-    return sum([sum(num) for num in numbers])
+    # lets use list comprehension to iterate over paramter
+    # lets use zip function in list comprehension
+    # note: zip function does is to returns zip object,
+    # where iteratorhave first item in each passed iterator is paired together and then second item in each passed iterator are paired together
+    # then lets use sum function in list comprehension to add the integers inside the loop
+
+    result = [sum(num) for num in zip(*numbers)]
+
+    return result
 
 def powers_of_2(n: int):
 

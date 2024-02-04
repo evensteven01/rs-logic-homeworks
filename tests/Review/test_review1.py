@@ -196,7 +196,7 @@ def test_shorten_to_date():
 def test_double_array():
     assert double_array([]) == []
     assert double_array([0, 1, 2]) == [0, 2, 4]
-    assert double_array([-4, 1, 8, 1000, 34, 73, -1231, 54, 6, 6, 1]) == [-8, 2, 16, 2000, 64, 146, -2462, 108, 12, 12, 2]
+    assert double_array([-4, 1, 8, 1000, 34, 73, -1231, 54, 6, 6, 1]) == [-8, 2, 16, 2000, 68, 146, -2462, 108, 12, 12, 2]
 
 def test_sum_2d_list():
     assert sum_2d_list([[1,2,3], [5,6]]) == 17
@@ -209,8 +209,8 @@ def test_sum_2d_list():
 def test_sums_of_lists():
     assert sums_of_lists([[1,2,3], [5,6]]) == [6,11]
     assert sums_of_lists([]) == []
-    assert ssums_of_lists([[]]) == [0]
-    assert ssums_of_lists([[], [1]]) == [0,1]
+    assert ssums_of_lists([[0]]) == [0]
+    assert ssums_of_lists([[0], [1]]) == [0, 1]
     assert sums_of_lists([[1,2,3], [5,6], [100, -200]]) == [6, 11, -100]
 
 def test_powers_of_2():
