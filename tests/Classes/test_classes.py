@@ -5,7 +5,6 @@ from unittest.mock import call
 
 from src.Classes.classes1 import *
 
-
 def test_create_cube1():
     # Arrange
     # Assert
