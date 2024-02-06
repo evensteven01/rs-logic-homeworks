@@ -6,7 +6,7 @@ class Shape:
 	def getArea(self):
 		raise NotImplementedError()
 		
-class Cube(object):
+class Cube(Shape):
 	"""docstring for Cube"""
 	def __init__(self):
 		side = 0
@@ -22,7 +22,7 @@ class Cube(object):
 		ar =  6 * (self.side * self.side)
 		return ar
 
-class Sphere(object):
+class Sphere(Shape):
 	"""docstring for Sphere"""
 	def __init__(self, r):
 		self.radius = r
