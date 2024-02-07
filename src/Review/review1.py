@@ -2,8 +2,6 @@ import math
 
 from decimal import *
 
-import re
-
 def fuel_cost(liters: float, pricePerLiter: float):
 
     discount = int(liters / 2) * 0.05
@@ -263,15 +261,9 @@ def sum_2d_list(arr: int):
 
     return totalSum
 
-def sums_of_lists(numbers: list[int]):
+def sums_of_lists(numbers: list[list[int]]):
 
-    # lets use list comprehension to iterate over paramter
-    # lets use zip function in list comprehension
-    # note: zip function does is to returns zip object,
-    # where iteratorhave first item in each passed iterator is paired together and then second item in each passed iterator are paired together
-    # then lets use sum function in list comprehension to add the integers inside the loop
-
-    result = [sum(num) for num in zip(*numbers)]
+    result = [sum(listNum) for listNum in numbers]
 
     return result
 
@@ -282,12 +274,12 @@ def powers_of_2(n: int):
     # in body statement, append the expression: iterator to the power of 2 into the array
     # finally returns the array
     
-    out = []
+    results = []
 
     for num in range(n+1):
-        out.append(2**num)
+        results.append(2**num)
 
-    return out
+    return results
 
 def count_pos_sum_neg(arr: int):
 
@@ -300,12 +292,16 @@ def count_pos_sum_neg(arr: int):
     # then put this whole code block with two list comprehensions into brackets
     # finally, outside of the bracket, check if length of array is not equal to 0
     # otherwise, its empty array
+    if len(arr) == 0:
+        return []
 
-    return [len([i for i in arr if i > 0]), sum([i for i in arr if i < 0])] if len(arr) != 0 else []
+    len_pos = len([i for i in arr if i > 0])
+    sum_neg = sum([i for i in arr if i < 0])
+
+    return [len_pos, sum_neg]
 
 def is_all_caps(randomCharacters: str):
 
-    # import re- regular expression
     # then use if-else-if statements
     # use of uppercase function to compare the parameter
     # then use match function which takes two arguments and then check if its not equal to null
@@ -313,9 +309,5 @@ def is_all_caps(randomCharacters: str):
 
     if randomCharacters.upper() == randomCharacters:
         return True
-
-    elif re.match('a-z', randomCharacters) != None:
-        return False
-
     else:
         return False

@@ -209,8 +209,8 @@ def test_sum_2d_list():
 def test_sums_of_lists():
     assert sums_of_lists([[1,2,3], [5,6]]) == [6,11]
     assert sums_of_lists([]) == []
-    assert ssums_of_lists([[0]]) == [0]
-    assert ssums_of_lists([[0], [1]]) == [0, 1]
+    assert sums_of_lists([[0]]) == [0]
+    assert sums_of_lists([[0], [1]]) == [0, 1]
     assert sums_of_lists([[1,2,3], [5,6], [100, -200]]) == [6, 11, -100]
 
 def test_powers_of_2():
